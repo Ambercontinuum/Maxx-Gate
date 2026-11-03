@@ -1,0 +1,95 @@
+tau,n_in,split,score_source,metric,value,binning,note
+0.5,2000,train,adult-linear-2026-11-01,admitted_n,1379,,counts
+0.5,2000,train,adult-linear-2026-11-01,held_n,621,,counts
+0.5,2000,train,adult-linear-2026-11-01,identity_ok,1,,admitted+held must equal n_in
+0.5,2000,train,adult-linear-2026-11-01,mean_gap,0.16600419114530246,,"admitted mean minus held mean, score units"
+0.5,2000,train,adult-linear-2026-11-01,admitted_mean_score,0.6009921138506165,10,constructional if score_*; evidence if label_*
+0.5,2000,train,adult-linear-2026-11-01,held_mean_score,0.434987922705314,10,constructional if score_*; evidence if label_*
+0.5,2000,train,adult-linear-2026-11-01,admitted_score_entropy_bits,1.3531619449191647,10,constructional if score_*; evidence if label_*
+0.5,2000,train,adult-linear-2026-11-01,held_score_entropy_bits,0.8593368304499489,10,constructional if score_*; evidence if label_*
+0.5,2000,train,adult-linear-2026-11-01,admitted_label_entropy_bits,0.9290158488004001,10,constructional if score_*; evidence if label_*
+0.5,2000,train,adult-linear-2026-11-01,held_label_entropy_bits,0.2360555590056724,10,constructional if score_*; evidence if label_*
+0.5,2000,train,adult-linear-2026-11-01,score_kl_admitted_vs_held_bits,,10,constructional if score_*; evidence if label_*
+0.5,2000,train,adult-linear-2026-11-01,score_js_bits,1.0,10,constructional if score_*; evidence if label_*
+0.5,2000,train,adult-linear-2026-11-01,mi_score_bin_chamber_bits,0.8937497796107383,10,constructional if score_*; evidence if label_*
+0.5,2000,train,adult-linear-2026-11-01,label_kl_admitted_vs_held_bits,0.724943438668861,10,constructional if score_*; evidence if label_*
+0.5,2000,train,adult-linear-2026-11-01,label_js_bits,0.12216683717344543,10,constructional if score_*; evidence if label_*
+0.5,2000,train,adult-linear-2026-11-01,mi_label_chamber_bits,0.0966330021649767,10,constructional if score_*; evidence if label_*
+0.5,2000,train,adult-linear-2026-11-01,admitted_label1_rate,0.34445250181290793,10,constructional if score_*; evidence if label_*
+0.5,2000,train,adult-linear-2026-11-01,held_label1_rate,0.03864734299516908,10,constructional if score_*; evidence if label_*
+0.5,2000,train,adult-linear-2026-11-01,label1_rate_gap,0.30580515881773884,10,constructional if score_*; evidence if label_*
+0.5,2000,train,adult-linear-2026-11-01,admitted_mean_score,0.6009921138506165,5,constructional if score_*; evidence if label_*
+0.5,2000,train,adult-linear-2026-11-01,held_mean_score,0.434987922705314,5,constructional if score_*; evidence if label_*
+0.5,2000,train,adult-linear-2026-11-01,admitted_score_entropy_bits,1.0634925043244232,5,constructional if score_*; evidence if label_*
+0.5,2000,train,adult-linear-2026-11-01,held_score_entropy_bits,0.7308546633365913,5,constructional if score_*; evidence if label_*
+0.5,2000,train,adult-linear-2026-11-01,admitted_label_entropy_bits,0.9290158488004001,5,constructional if score_*; evidence if label_*
+0.5,2000,train,adult-linear-2026-11-01,held_label_entropy_bits,0.2360555590056724,5,constructional if score_*; evidence if label_*
+0.5,2000,train,adult-linear-2026-11-01,score_kl_admitted_vs_held_bits,,5,constructional if score_*; evidence if label_*
+0.5,2000,train,adult-linear-2026-11-01,score_js_bits,0.3376592024820748,5,constructional if score_*; evidence if label_*
+0.5,2000,train,adult-linear-2026-11-01,mi_score_bin_chamber_bits,0.28330483754399133,5,constructional if score_*; evidence if label_*
+0.5,2000,train,adult-linear-2026-11-01,label_kl_admitted_vs_held_bits,0.724943438668861,5,constructional if score_*; evidence if label_*
+0.5,2000,train,adult-linear-2026-11-01,label_js_bits,0.12216683717344543,5,constructional if score_*; evidence if label_*
+0.5,2000,train,adult-linear-2026-11-01,mi_label_chamber_bits,0.0966330021649767,5,constructional if score_*; evidence if label_*
+0.5,2000,train,adult-linear-2026-11-01,admitted_label1_rate,0.34445250181290793,5,constructional if score_*; evidence if label_*
+0.5,2000,train,adult-linear-2026-11-01,held_label1_rate,0.03864734299516908,5,constructional if score_*; evidence if label_*
+0.5,2000,train,adult-linear-2026-11-01,label1_rate_gap,0.30580515881773884,5,constructional if score_*; evidence if label_*
+0.5,2000,train,adult-linear-2026-11-01,admitted_mean_score,0.6009921138506165,20,constructional if score_*; evidence if label_*
+0.5,2000,train,adult-linear-2026-11-01,held_mean_score,0.434987922705314,20,constructional if score_*; evidence if label_*
+0.5,2000,train,adult-linear-2026-11-01,admitted_score_entropy_bits,2.3022438887386953,20,constructional if score_*; evidence if label_*
+0.5,2000,train,adult-linear-2026-11-01,held_score_entropy_bits,1.7928608314080576,20,constructional if score_*; evidence if label_*
+0.5,2000,train,adult-linear-2026-11-01,admitted_label_entropy_bits,0.9290158488004001,20,constructional if score_*; evidence if label_*
+0.5,2000,train,adult-linear-2026-11-01,held_label_entropy_bits,0.2360555590056724,20,constructional if score_*; evidence if label_*
+0.5,2000,train,adult-linear-2026-11-01,score_kl_admitted_vs_held_bits,,20,constructional if score_*; evidence if label_*
+0.5,2000,train,adult-linear-2026-11-01,score_js_bits,1.0,20,constructional if score_*; evidence if label_*
+0.5,2000,train,adult-linear-2026-11-01,mi_score_bin_chamber_bits,0.8937497796107381,20,constructional if score_*; evidence if label_*
+0.5,2000,train,adult-linear-2026-11-01,label_kl_admitted_vs_held_bits,0.724943438668861,20,constructional if score_*; evidence if label_*
+0.5,2000,train,adult-linear-2026-11-01,label_js_bits,0.12216683717344543,20,constructional if score_*; evidence if label_*
+0.5,2000,train,adult-linear-2026-11-01,mi_label_chamber_bits,0.0966330021649767,20,constructional if score_*; evidence if label_*
+0.5,2000,train,adult-linear-2026-11-01,admitted_label1_rate,0.34445250181290793,20,constructional if score_*; evidence if label_*
+0.5,2000,train,adult-linear-2026-11-01,held_label1_rate,0.03864734299516908,20,constructional if score_*; evidence if label_*
+0.5,2000,train,adult-linear-2026-11-01,label1_rate_gap,0.30580515881773884,20,constructional if score_*; evidence if label_*
+0.5,2000,train,adult-linear-2026-11-01,flip_either_rate,0.063,,delta=0.01
+0.5,2000,train,adult-linear-2026-11-01,flip_plus_rate,0.0375,,delta=0.01
+0.5,2000,train,adult-linear-2026-11-01,flip_minus_rate,0.031,,delta=0.01
+0.5,2000,train,adult-linear-2026-11-01,flip_either_rate,0.199,,delta=0.03
+0.5,2000,train,adult-linear-2026-11-01,flip_plus_rate,0.0975,,delta=0.03
+0.5,2000,train,adult-linear-2026-11-01,flip_minus_rate,0.103,,delta=0.03
+0.5,2000,train,adult-linear-2026-11-01,flip_either_rate,0.3195,,delta=0.05
+0.5,2000,train,adult-linear-2026-11-01,flip_plus_rate,0.1535,,delta=0.05
+0.5,2000,train,adult-linear-2026-11-01,flip_minus_rate,0.166,,delta=0.05
+0.5,2000,train,adult-linear-2026-11-01,flip_either_rate,0.6325,,delta=0.1
+0.5,2000,train,adult-linear-2026-11-01,flip_plus_rate,0.247,,delta=0.1
+0.5,2000,train,adult-linear-2026-11-01,flip_minus_rate,0.3845,,delta=0.1
+0.5,2000,train,adult-linear-2026-11-01,tau_sweep_label_js_bits,,10,sweep_tau=0.1
+0.5,2000,train,adult-linear-2026-11-01,tau_sweep_mean_gap,,10,sweep_tau=0.1
+0.5,2000,train,adult-linear-2026-11-01,tau_sweep_label1_rate_gap,,10,sweep_tau=0.1
+0.5,2000,train,adult-linear-2026-11-01,tau_sweep_label_js_bits,,10,sweep_tau=0.2
+0.5,2000,train,adult-linear-2026-11-01,tau_sweep_mean_gap,,10,sweep_tau=0.2
+0.5,2000,train,adult-linear-2026-11-01,tau_sweep_label1_rate_gap,,10,sweep_tau=0.2
+0.5,2000,train,adult-linear-2026-11-01,tau_sweep_label_js_bits,0.1391612437446399,10,sweep_tau=0.3
+0.5,2000,train,adult-linear-2026-11-01,tau_sweep_mean_gap,0.27314804292929284,10,sweep_tau=0.3
+0.5,2000,train,adult-linear-2026-11-01,tau_sweep_label1_rate_gap,0.25202020202020203,10,sweep_tau=0.3
+0.5,2000,train,adult-linear-2026-11-01,tau_sweep_label_js_bits,0.14803455172220115,10,sweep_tau=0.4
+0.5,2000,train,adult-linear-2026-11-01,tau_sweep_mean_gap,0.21524689590156004,10,sweep_tau=0.4
+0.5,2000,train,adult-linear-2026-11-01,tau_sweep_label1_rate_gap,0.26641751201281366,10,sweep_tau=0.4
+0.5,2000,train,adult-linear-2026-11-01,tau_sweep_label_js_bits,0.12216683717344543,10,sweep_tau=0.5
+0.5,2000,train,adult-linear-2026-11-01,tau_sweep_mean_gap,0.16600419114530246,10,sweep_tau=0.5
+0.5,2000,train,adult-linear-2026-11-01,tau_sweep_label1_rate_gap,0.30580515881773884,10,sweep_tau=0.5
+0.5,2000,train,adult-linear-2026-11-01,tau_sweep_label_js_bits,0.1068894559250137,10,sweep_tau=0.6
+0.5,2000,train,adult-linear-2026-11-01,tau_sweep_mean_gap,0.16150922131147538,10,sweep_tau=0.6
+0.5,2000,train,adult-linear-2026-11-01,tau_sweep_label1_rate_gap,0.35099657978535204,10,sweep_tau=0.6
+0.5,2000,train,adult-linear-2026-11-01,tau_sweep_label_js_bits,0.14206386988646919,10,sweep_tau=0.7
+0.5,2000,train,adult-linear-2026-11-01,tau_sweep_mean_gap,0.20907960923724234,10,sweep_tau=0.7
+0.5,2000,train,adult-linear-2026-11-01,tau_sweep_label1_rate_gap,0.4326280137572234,10,sweep_tau=0.7
+0.5,2000,train,adult-linear-2026-11-01,tau_sweep_label_js_bits,0.019059023001705824,10,sweep_tau=0.8
+0.5,2000,train,adult-linear-2026-11-01,tau_sweep_mean_gap,0.27927172544080603,10,sweep_tau=0.8
+0.5,2000,train,adult-linear-2026-11-01,tau_sweep_label1_rate_gap,0.15163727959697734,10,sweep_tau=0.8
+0.5,2000,train,adult-linear-2026-11-01,tau_sweep_label_js_bits,,10,sweep_tau=0.9
+0.5,2000,train,adult-linear-2026-11-01,tau_sweep_mean_gap,,10,sweep_tau=0.9
+0.5,2000,train,adult-linear-2026-11-01,tau_sweep_label1_rate_gap,,10,sweep_tau=0.9
+0.5,2000,train,adult-linear-2026-11-01,shuffled_label_js_bits,5.900512972026491e-06,10,seed=0
+0.5,2000,train,adult-linear-2026-11-01,shuffled_mi_label_chamber_bits,5.0550682215434435e-06,10,seed=0
+0.5,2000,train,adult-linear-2026-11-01,shuffled_label_js_bits,0.0005253572106023886,10,seed=1
+0.5,2000,train,adult-linear-2026-11-01,shuffled_mi_label_chamber_bits,0.00044809461714306626,10,seed=1
+0.5,2000,train,adult-linear-2026-11-01,shuffled_label_js_bits,0.00042442272236462453,10,seed=2
+0.5,2000,train,adult-linear-2026-11-01,shuffled_mi_label_chamber_bits,0.00036215313413701187,10,seed=2

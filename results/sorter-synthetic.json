@@ -1,0 +1,338 @@
+{
+  "tau": 0.5,
+  "n_in": 2000,
+  "split": "synthetic",
+  "score_source": "synthetic-gaussian",
+  "counts": {
+    "admitted": 986,
+    "held": 1014
+  },
+  "identity_check": {
+    "admitted_plus_held": 2000,
+    "n_in": 2000,
+    "ok": true
+  },
+  "binnings": {
+    "10": {
+      "n_bins": 10,
+      "bin_width": 0.1,
+      "admitted_n": 986,
+      "admitted_mean_score": 0.6729683569979715,
+      "admitted_score_entropy_bits": 2.083245772728796,
+      "admitted_label_counts": {
+        "0": 162,
+        "1": 824
+      },
+      "admitted_label_entropy_bits": 0.6444984663309732,
+      "held_n": 1014,
+      "held_mean_score": 0.3202714003944774,
+      "held_score_entropy_bits": 2.127086258135279,
+      "held_label_counts": {
+        "0": 850,
+        "1": 164
+      },
+      "held_label_entropy_bits": 0.6384457780993265,
+      "score_kl_admitted_vs_held_bits": null,
+      "score_kl_disjoint_support": true,
+      "score_js_bits": 1.0,
+      "mi_score_bin_chamber_bits": 0.999858611267083,
+      "label_kl_admitted_vs_held_bits": 1.5937810621212911,
+      "label_kl_disjoint_support": false,
+      "label_js_bits": 0.35852313371230926,
+      "mi_label_chamber_bits": 0.358466370066407,
+      "admitted_label1_rate": 0.8356997971602435,
+      "held_label1_rate": 0.16173570019723865,
+      "label1_rate_gap": 0.6739640969630047,
+      "small_n_warning": false,
+      "sparse_bin_warning": false
+    },
+    "5": {
+      "n_bins": 5,
+      "bin_width": 0.2,
+      "admitted_n": 986,
+      "admitted_mean_score": 0.6729683569979715,
+      "admitted_score_entropy_bits": 1.4334021452122134,
+      "admitted_label_counts": {
+        "0": 162,
+        "1": 824
+      },
+      "admitted_label_entropy_bits": 0.6444984663309732,
+      "held_n": 1014,
+      "held_mean_score": 0.3202714003944774,
+      "held_score_entropy_bits": 1.4633334548355243,
+      "held_label_counts": {
+        "0": 850,
+        "1": 164
+      },
+      "held_label_entropy_bits": 0.6384457780993265,
+      "score_kl_admitted_vs_held_bits": null,
+      "score_kl_disjoint_support": true,
+      "score_js_bits": 0.6829787621304598,
+      "mi_score_bin_chamber_bits": 0.6828608868150855,
+      "label_kl_admitted_vs_held_bits": 1.5937810621212911,
+      "label_kl_disjoint_support": false,
+      "label_js_bits": 0.35852313371230926,
+      "mi_label_chamber_bits": 0.358466370066407,
+      "admitted_label1_rate": 0.8356997971602435,
+      "held_label1_rate": 0.16173570019723865,
+      "label1_rate_gap": 0.6739640969630047,
+      "small_n_warning": false,
+      "sparse_bin_warning": false
+    },
+    "20": {
+      "n_bins": 20,
+      "bin_width": 0.05,
+      "admitted_n": 986,
+      "admitted_mean_score": 0.6729683569979715,
+      "admitted_score_entropy_bits": 3.071047148857847,
+      "admitted_label_counts": {
+        "0": 162,
+        "1": 824
+      },
+      "admitted_label_entropy_bits": 0.6444984663309732,
+      "held_n": 1014,
+      "held_mean_score": 0.3202714003944774,
+      "held_score_entropy_bits": 3.1010084741735326,
+      "held_label_counts": {
+        "0": 850,
+        "1": 164
+      },
+      "held_label_entropy_bits": 0.6384457780993265,
+      "score_kl_admitted_vs_held_bits": null,
+      "score_kl_disjoint_support": true,
+      "score_js_bits": 1.0,
+      "mi_score_bin_chamber_bits": 0.9998586112670831,
+      "label_kl_admitted_vs_held_bits": 1.5937810621212911,
+      "label_kl_disjoint_support": false,
+      "label_js_bits": 0.35852313371230926,
+      "mi_label_chamber_bits": 0.358466370066407,
+      "admitted_label1_rate": 0.8356997971602435,
+      "held_label1_rate": 0.16173570019723865,
+      "label1_rate_gap": 0.6739640969630047,
+      "small_n_warning": false,
+      "sparse_bin_warning": false
+    }
+  },
+  "flip_rates": [
+    {
+      "delta": 0.01,
+      "flip_plus_n": 35,
+      "flip_plus_rate": 0.0175,
+      "flip_minus_n": 35,
+      "flip_minus_rate": 0.0175,
+      "flip_either_n": 70,
+      "flip_either_rate": 0.035
+    },
+    {
+      "delta": 0.03,
+      "flip_plus_n": 90,
+      "flip_plus_rate": 0.045,
+      "flip_minus_n": 89,
+      "flip_minus_rate": 0.0445,
+      "flip_either_n": 179,
+      "flip_either_rate": 0.0895
+    },
+    {
+      "delta": 0.05,
+      "flip_plus_n": 159,
+      "flip_plus_rate": 0.0795,
+      "flip_minus_n": 162,
+      "flip_minus_rate": 0.081,
+      "flip_either_n": 321,
+      "flip_either_rate": 0.1605
+    },
+    {
+      "delta": 0.1,
+      "flip_plus_n": 318,
+      "flip_plus_rate": 0.159,
+      "flip_minus_n": 315,
+      "flip_minus_rate": 0.1575,
+      "flip_either_n": 634,
+      "flip_either_rate": 0.317
+    }
+  ],
+  "tau_sweep": [
+    {
+      "tau": 0.1,
+      "admitted_n": 1931,
+      "held_n": 69,
+      "admitted_mean_score": 0.510070274469187,
+      "held_mean_score": 0.04864202898550725,
+      "mean_gap": 0.4614282454836797,
+      "admitted_label1_rate": 0.5116519937856033,
+      "held_label1_rate": 0.0,
+      "label1_rate_gap": 0.5116519937856033,
+      "score_js_bits": 1.0,
+      "label_js_bits": 0.320578087033127,
+      "mi_label_chamber_bits": 0.03477438886322121,
+      "small_n_warning": true
+    },
+    {
+      "tau": 0.2,
+      "admitted_n": 1820,
+      "held_n": 180,
+      "admitted_mean_score": 0.5312880769230769,
+      "held_mean_score": 0.11865388888888888,
+      "mean_gap": 0.412634188034188,
+      "admitted_label1_rate": 0.5428571428571428,
+      "held_label1_rate": 0.0,
+      "label1_rate_gap": 0.5428571428571428,
+      "score_js_bits": 1.0,
+      "label_js_bits": 0.34616018789325076,
+      "mi_label_chamber_bits": 0.09472476968514723,
+      "small_n_warning": false
+    },
+    {
+      "tau": 0.3,
+      "admitted_n": 1616,
+      "held_n": 384,
+      "admitted_mean_score": 0.5661287747524753,
+      "held_mean_score": 0.19124453125,
+      "mean_gap": 0.3748842435024753,
+      "admitted_label1_rate": 0.6039603960396039,
+      "held_label1_rate": 0.03125,
+      "label1_rate_gap": 0.5727103960396039,
+      "score_js_bits": 0.9965379921780442,
+      "label_js_bits": 0.31715364201623664,
+      "mi_label_chamber_bits": 0.17875857022708835,
+      "small_n_warning": false
+    },
+    {
+      "tau": 0.4,
+      "admitted_n": 1304,
+      "held_n": 696,
+      "admitted_mean_score": 0.6186252300613497,
+      "held_mean_score": 0.2609406609195402,
+      "mean_gap": 0.3576845691418095,
+      "admitted_label1_rate": 0.7177914110429447,
+      "held_label1_rate": 0.07471264367816093,
+      "label1_rate_gap": 0.6430787673647839,
+      "score_js_bits": 1.0,
+      "label_js_bits": 0.34785995264341396,
+      "mi_label_chamber_bits": 0.306813786454014,
+      "small_n_warning": false
+    },
+    {
+      "tau": 0.5,
+      "admitted_n": 986,
+      "held_n": 1014,
+      "admitted_mean_score": 0.6729683569979715,
+      "held_mean_score": 0.3202714003944774,
+      "mean_gap": 0.35269695660349415,
+      "admitted_label1_rate": 0.8356997971602435,
+      "held_label1_rate": 0.16173570019723865,
+      "label1_rate_gap": 0.6739640969630047,
+      "score_js_bits": 1.0,
+      "label_js_bits": 0.35852313371230926,
+      "mi_label_chamber_bits": 0.358466370066407,
+      "small_n_warning": false
+    },
+    {
+      "tau": 0.6,
+      "admitted_n": 671,
+      "held_n": 1329,
+      "admitted_mean_score": 0.730508047690015,
+      "held_mean_score": 0.3748164785553047,
+      "mean_gap": 0.3556915691347103,
+      "admitted_label1_rate": 0.9239940387481371,
+      "held_label1_rate": 0.2768999247554552,
+      "label1_rate_gap": 0.6470941139926819,
+      "score_js_bits": 0.9934720769243197,
+      "label_js_bits": 0.3511188074887538,
+      "mi_label_chamber_bits": 0.30412258353632005,
+      "small_n_warning": false
+    },
+    {
+      "tau": 0.7,
+      "admitted_n": 350,
+      "held_n": 1650,
+      "admitted_mean_score": 0.8053419999999999,
+      "held_mean_score": 0.42814078787878784,
+      "mean_gap": 0.37720121212121205,
+      "admitted_label1_rate": 0.96,
+      "held_label1_rate": 0.39515151515151514,
+      "label1_rate_gap": 0.5648484848484848,
+      "score_js_bits": 0.9892312012455665,
+      "label_js_bits": 0.30183035009647563,
+      "mi_label_chamber_bits": 0.15885897028226528,
+      "small_n_warning": false
+    },
+    {
+      "tau": 0.8,
+      "admitted_n": 154,
+      "held_n": 1846,
+      "admitted_mean_score": 0.8794642857142857,
+      "held_mean_score": 0.4620067713976165,
+      "mean_gap": 0.4174575143166692,
+      "admitted_label1_rate": 0.9805194805194806,
+      "held_label1_rate": 0.45341278439869986,
+      "label1_rate_gap": 0.5271066961207806,
+      "score_js_bits": 1.0,
+      "label_js_bits": 0.29343063562312144,
+      "mi_label_chamber_bits": 0.07201911242497977,
+      "small_n_warning": false
+    },
+    {
+      "tau": 0.9,
+      "admitted_n": 58,
+      "held_n": 1942,
+      "admitted_mean_score": 0.9465862068965517,
+      "held_mean_score": 0.4806385169927909,
+      "mean_gap": 0.4659476899037608,
+      "admitted_label1_rate": 0.9827586206896551,
+      "held_label1_rate": 0.47940267765190525,
+      "label1_rate_gap": 0.5033559430377499,
+      "score_js_bits": 1.0,
+      "label_js_bits": 0.27769290620011194,
+      "mi_label_chamber_bits": 0.02644100261248766,
+      "small_n_warning": true
+    }
+  ],
+  "shuffled_control": [
+    {
+      "seed": 0,
+      "admitted_n": 986,
+      "held_n": 1014,
+      "label_js_bits": 0.00018867365986009483,
+      "mi_label_chamber_bits": 0.00018863633324494537,
+      "label1_rate_gap": -0.016171169549231645,
+      "score_js_bits": 1.0
+    },
+    {
+      "seed": 1,
+      "admitted_n": 986,
+      "held_n": 1014,
+      "label_js_bits": 0.0025852088594727762,
+      "mi_label_chamber_bits": 0.0025847186028923434,
+      "label1_rate_gap": 0.05984372937095678,
+      "score_js_bits": 1.0
+    },
+    {
+      "seed": 2,
+      "admitted_n": 986,
+      "held_n": 1014,
+      "label_js_bits": 0.0010516893317936045,
+      "mi_label_chamber_bits": 0.001051478551079111,
+      "label1_rate_gap": -0.038175482394549265,
+      "score_js_bits": 1.0
+    }
+  ],
+  "warnings": [],
+  "mean_gap": 0.35269695660349415,
+  "binning_sensitivity": {
+    "label_js_bits_by_binning": {
+      "10": 0.35852313371230926,
+      "5": 0.35852313371230926,
+      "20": 0.35852313371230926
+    },
+    "label_js_spread_bits": 0.0,
+    "score_js_bits_by_binning": {
+      "10": 1.0,
+      "5": 0.6829787621304598,
+      "20": 1.0
+    },
+    "score_js_spread_bits": 0.3170212378695402,
+    "stable": true,
+    "note": "label JS is binning-invariant by construction; score JS varies when a bin straddles tau; spreads are null when a chamber is empty (divergence undefined)"
+  }
+}

@@ -1,0 +1,114 @@
+{
+  "maxx_integrated_run": "gate + demon sorter, one codebase, one command",
+  "gate": {
+    "proposal_source": "seeded-queue",
+    "world": "SYNTHETIC mock only; no real money, send, share, book, post, or delete",
+    "tokens": {
+      "in": 800,
+      "retained": 400,
+      "discarded": 400
+    },
+    "decisions": {
+      "release": 1,
+      "hold": 2,
+      "wrap": 3,
+      "escalate": 2
+    },
+    "attention_baseline": 8,
+    "attention_gated": 7,
+    "attention_saved": 1,
+    "money_at_risk_baseline_usd": 1090.0,
+    "money_held_by_gate_usd": 1090.0,
+    "irreversible_released_baseline": 6,
+    "irreversible_released_gated": 0,
+    "mock_executed": 4,
+    "mock_not_executed": 4
+  },
+  "sorter_tau": 0.5,
+  "sorter": {
+    "synthetic": {
+      "n_in": 2000,
+      "counts": {
+        "admitted": 986,
+        "held": 1014
+      },
+      "identity_ok": true,
+      "mean_gap": 0.35269695660349415,
+      "label_js_bits_10bin": 0.35852313371230926,
+      "label_mi_bits_10bin": 0.358466370066407,
+      "label_kl_bits_10bin": 1.5937810621212911,
+      "shuffled_label_js_bits": [
+        0.00018867365986009483,
+        0.0025852088594727762,
+        0.0010516893317936045
+      ],
+      "flip_either_rates": {
+        "0.01": 0.035,
+        "0.03": 0.0895,
+        "0.05": 0.1605,
+        "0.1": 0.317
+      },
+      "warnings": []
+    },
+    "adult-train": {
+      "n_in": 2000,
+      "counts": {
+        "admitted": 1379,
+        "held": 621
+      },
+      "identity_ok": true,
+      "mean_gap": 0.16600419114530246,
+      "label_js_bits_10bin": 0.12216683717344543,
+      "label_mi_bits_10bin": 0.0966330021649767,
+      "label_kl_bits_10bin": 0.724943438668861,
+      "shuffled_label_js_bits": [
+        5.900512972026491e-06,
+        0.0005253572106023886,
+        0.00042442272236462453
+      ],
+      "flip_either_rates": {
+        "0.01": 0.063,
+        "0.03": 0.199,
+        "0.05": 0.3195,
+        "0.1": 0.6325
+      },
+      "warnings": [
+        "sparse bins: at least one score bin has fewer than 5 rows in total"
+      ]
+    },
+    "adult-test": {
+      "n_in": 2000,
+      "counts": {
+        "admitted": 1341,
+        "held": 659
+      },
+      "identity_ok": true,
+      "mean_gap": 0.16739838611029056,
+      "label_js_bits_10bin": 0.115896338536394,
+      "label_mi_bits_10bin": 0.09541589824968753,
+      "label_kl_bits_10bin": 0.6769692126410978,
+      "shuffled_label_js_bits": [
+        0.0005631050007820753,
+        0.0005631050007820753,
+        0.002964585627072372
+      ],
+      "flip_either_rates": {
+        "0.01": 0.066,
+        "0.03": 0.2045,
+        "0.05": 0.331,
+        "0.1": 0.616
+      },
+      "warnings": [
+        "sparse bins: at least one score bin has fewer than 5 rows in total"
+      ]
+    }
+  },
+  "limits": [
+    "Gate world is SYNTHETIC and mock-only.",
+    "Gate stability K is a STUB, advice-only, not Glimmer telemetry.",
+    "Sorter runs here are templates only (first 2,000 rows each).",
+    "Score-bin divergence is constructional and is NOT evidence; label divergence on an independent label is the evidence.",
+    "No joules, no kelvin, no physics budget, no validated K claim.",
+    "Analysis/ (K geometry, Adult information isomorph) is appendix analysis, NOT gate input, and Adult coherence is NOT K's geometrical coherence."
+  ]
+}

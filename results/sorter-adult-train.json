@@ -1,0 +1,340 @@
+{
+  "tau": 0.5,
+  "n_in": 2000,
+  "split": "train",
+  "score_source": "adult-linear-2026-11-01",
+  "counts": {
+    "admitted": 1379,
+    "held": 621
+  },
+  "identity_check": {
+    "admitted_plus_held": 2000,
+    "n_in": 2000,
+    "ok": true
+  },
+  "binnings": {
+    "10": {
+      "n_bins": 10,
+      "bin_width": 0.1,
+      "admitted_n": 1379,
+      "admitted_mean_score": 0.6009921138506165,
+      "admitted_score_entropy_bits": 1.3531619449191647,
+      "admitted_label_counts": {
+        "0": 904,
+        "1": 475
+      },
+      "admitted_label_entropy_bits": 0.9290158488004001,
+      "held_n": 621,
+      "held_mean_score": 0.434987922705314,
+      "held_score_entropy_bits": 0.8593368304499489,
+      "held_label_counts": {
+        "0": 597,
+        "1": 24
+      },
+      "held_label_entropy_bits": 0.2360555590056724,
+      "score_kl_admitted_vs_held_bits": null,
+      "score_kl_disjoint_support": true,
+      "score_js_bits": 1.0,
+      "mi_score_bin_chamber_bits": 0.8937497796107383,
+      "label_kl_admitted_vs_held_bits": 0.724943438668861,
+      "label_kl_disjoint_support": false,
+      "label_js_bits": 0.12216683717344543,
+      "mi_label_chamber_bits": 0.0966330021649767,
+      "admitted_label1_rate": 0.34445250181290793,
+      "held_label1_rate": 0.03864734299516908,
+      "label1_rate_gap": 0.30580515881773884,
+      "small_n_warning": false,
+      "sparse_bin_warning": true
+    },
+    "5": {
+      "n_bins": 5,
+      "bin_width": 0.2,
+      "admitted_n": 1379,
+      "admitted_mean_score": 0.6009921138506165,
+      "admitted_score_entropy_bits": 1.0634925043244232,
+      "admitted_label_counts": {
+        "0": 904,
+        "1": 475
+      },
+      "admitted_label_entropy_bits": 0.9290158488004001,
+      "held_n": 621,
+      "held_mean_score": 0.434987922705314,
+      "held_score_entropy_bits": 0.7308546633365913,
+      "held_label_counts": {
+        "0": 597,
+        "1": 24
+      },
+      "held_label_entropy_bits": 0.2360555590056724,
+      "score_kl_admitted_vs_held_bits": null,
+      "score_kl_disjoint_support": true,
+      "score_js_bits": 0.3376592024820748,
+      "mi_score_bin_chamber_bits": 0.28330483754399133,
+      "label_kl_admitted_vs_held_bits": 0.724943438668861,
+      "label_kl_disjoint_support": false,
+      "label_js_bits": 0.12216683717344543,
+      "mi_label_chamber_bits": 0.0966330021649767,
+      "admitted_label1_rate": 0.34445250181290793,
+      "held_label1_rate": 0.03864734299516908,
+      "label1_rate_gap": 0.30580515881773884,
+      "small_n_warning": false,
+      "sparse_bin_warning": true
+    },
+    "20": {
+      "n_bins": 20,
+      "bin_width": 0.05,
+      "admitted_n": 1379,
+      "admitted_mean_score": 0.6009921138506165,
+      "admitted_score_entropy_bits": 2.3022438887386953,
+      "admitted_label_counts": {
+        "0": 904,
+        "1": 475
+      },
+      "admitted_label_entropy_bits": 0.9290158488004001,
+      "held_n": 621,
+      "held_mean_score": 0.434987922705314,
+      "held_score_entropy_bits": 1.7928608314080576,
+      "held_label_counts": {
+        "0": 597,
+        "1": 24
+      },
+      "held_label_entropy_bits": 0.2360555590056724,
+      "score_kl_admitted_vs_held_bits": null,
+      "score_kl_disjoint_support": true,
+      "score_js_bits": 1.0,
+      "mi_score_bin_chamber_bits": 0.8937497796107381,
+      "label_kl_admitted_vs_held_bits": 0.724943438668861,
+      "label_kl_disjoint_support": false,
+      "label_js_bits": 0.12216683717344543,
+      "mi_label_chamber_bits": 0.0966330021649767,
+      "admitted_label1_rate": 0.34445250181290793,
+      "held_label1_rate": 0.03864734299516908,
+      "label1_rate_gap": 0.30580515881773884,
+      "small_n_warning": false,
+      "sparse_bin_warning": true
+    }
+  },
+  "flip_rates": [
+    {
+      "delta": 0.01,
+      "flip_plus_n": 75,
+      "flip_plus_rate": 0.0375,
+      "flip_minus_n": 62,
+      "flip_minus_rate": 0.031,
+      "flip_either_n": 126,
+      "flip_either_rate": 0.063
+    },
+    {
+      "delta": 0.03,
+      "flip_plus_n": 195,
+      "flip_plus_rate": 0.0975,
+      "flip_minus_n": 206,
+      "flip_minus_rate": 0.103,
+      "flip_either_n": 398,
+      "flip_either_rate": 0.199
+    },
+    {
+      "delta": 0.05,
+      "flip_plus_n": 307,
+      "flip_plus_rate": 0.1535,
+      "flip_minus_n": 332,
+      "flip_minus_rate": 0.166,
+      "flip_either_n": 639,
+      "flip_either_rate": 0.3195
+    },
+    {
+      "delta": 0.1,
+      "flip_plus_n": 494,
+      "flip_plus_rate": 0.247,
+      "flip_minus_n": 769,
+      "flip_minus_rate": 0.3845,
+      "flip_either_n": 1265,
+      "flip_either_rate": 0.6325
+    }
+  ],
+  "tau_sweep": [
+    {
+      "tau": 0.1,
+      "admitted_n": 2000,
+      "held_n": 0,
+      "admitted_mean_score": 0.5494478125,
+      "held_mean_score": null,
+      "mean_gap": null,
+      "admitted_label1_rate": 0.2495,
+      "held_label1_rate": null,
+      "label1_rate_gap": null,
+      "score_js_bits": null,
+      "label_js_bits": null,
+      "mi_label_chamber_bits": 0.0,
+      "small_n_warning": true
+    },
+    {
+      "tau": 0.2,
+      "admitted_n": 2000,
+      "held_n": 0,
+      "admitted_mean_score": 0.5494478125,
+      "held_mean_score": null,
+      "mean_gap": null,
+      "admitted_label1_rate": 0.2495,
+      "held_label1_rate": null,
+      "label1_rate_gap": null,
+      "score_js_bits": null,
+      "label_js_bits": null,
+      "mi_label_chamber_bits": 0.0,
+      "small_n_warning": true
+    },
+    {
+      "tau": 0.3,
+      "admitted_n": 1980,
+      "held_n": 20,
+      "admitted_mean_score": 0.5521792929292929,
+      "held_mean_score": 0.27903125000000006,
+      "mean_gap": 0.27314804292929284,
+      "admitted_label1_rate": 0.25202020202020203,
+      "held_label1_rate": 0.0,
+      "label1_rate_gap": 0.25202020202020203,
+      "score_js_bits": 1.0,
+      "label_js_bits": 0.1391612437446399,
+      "mi_label_chamber_bits": 0.004164929174849832,
+      "small_n_warning": true
+    },
+    {
+      "tau": 0.4,
+      "admitted_n": 1873,
+      "held_n": 127,
+      "admitted_mean_score": 0.563115990389749,
+      "held_mean_score": 0.347869094488189,
+      "mean_gap": 0.21524689590156004,
+      "admitted_label1_rate": 0.26641751201281366,
+      "held_label1_rate": 0.0,
+      "label1_rate_gap": 0.26641751201281366,
+      "score_js_bits": 1.0,
+      "label_js_bits": 0.14803455172220115,
+      "mi_label_chamber_bits": 0.027311374690182993,
+      "small_n_warning": false
+    },
+    {
+      "tau": 0.5,
+      "admitted_n": 1379,
+      "held_n": 621,
+      "admitted_mean_score": 0.6009921138506165,
+      "held_mean_score": 0.434987922705314,
+      "mean_gap": 0.16600419114530246,
+      "admitted_label1_rate": 0.34445250181290793,
+      "held_label1_rate": 0.03864734299516908,
+      "label1_rate_gap": 0.30580515881773884,
+      "score_js_bits": 1.0,
+      "label_js_bits": 0.12216683717344543,
+      "mi_label_chamber_bits": 0.0966330021649767,
+      "small_n_warning": false
+    },
+    {
+      "tau": 0.6,
+      "admitted_n": 610,
+      "held_n": 1390,
+      "admitted_mean_score": 0.6616967213114754,
+      "held_mean_score": 0.5001875,
+      "mean_gap": 0.16150922131147538,
+      "admitted_label1_rate": 0.4934426229508197,
+      "held_label1_rate": 0.14244604316546763,
+      "label1_rate_gap": 0.35099657978535204,
+      "score_js_bits": 0.9854990202548782,
+      "label_js_bits": 0.1068894559250137,
+      "mi_label_chamber_bits": 0.09504919534412427,
+      "small_n_warning": false
+    },
+    {
+      "tau": 0.7,
+      "admitted_n": 122,
+      "held_n": 1878,
+      "admitted_mean_score": 0.7457735655737705,
+      "held_mean_score": 0.5366939563365282,
+      "mean_gap": 0.20907960923724234,
+      "admitted_label1_rate": 0.6557377049180327,
+      "held_label1_rate": 0.22310969116080936,
+      "label1_rate_gap": 0.4326280137572234,
+      "score_js_bits": 0.955180134063504,
+      "label_js_bits": 0.14206386988646919,
+      "mi_label_chamber_bits": 0.03473441597584748,
+      "small_n_warning": false
+    },
+    {
+      "tau": 0.8,
+      "admitted_n": 15,
+      "held_n": 1985,
+      "admitted_mean_score": 0.826625,
+      "held_mean_score": 0.547353274559194,
+      "mean_gap": 0.27927172544080603,
+      "admitted_label1_rate": 0.4,
+      "held_label1_rate": 0.24836272040302268,
+      "label1_rate_gap": 0.15163727959697734,
+      "score_js_bits": 1.0,
+      "label_js_bits": 0.019059023001705824,
+      "mi_label_chamber_bits": 0.0005948277631737874,
+      "small_n_warning": true
+    },
+    {
+      "tau": 0.9,
+      "admitted_n": 0,
+      "held_n": 2000,
+      "admitted_mean_score": null,
+      "held_mean_score": 0.5494478125,
+      "mean_gap": null,
+      "admitted_label1_rate": null,
+      "held_label1_rate": 0.2495,
+      "label1_rate_gap": null,
+      "score_js_bits": null,
+      "label_js_bits": null,
+      "mi_label_chamber_bits": 0.0,
+      "small_n_warning": true
+    }
+  ],
+  "shuffled_control": [
+    {
+      "seed": 0,
+      "admitted_n": 1379,
+      "held_n": 621,
+      "label_js_bits": 5.900512972026491e-06,
+      "mi_label_chamber_bits": 5.0550682215434435e-06,
+      "label1_rate_gap": -0.002476765001593967,
+      "score_js_bits": 1.0
+    },
+    {
+      "seed": 1,
+      "admitted_n": 1379,
+      "held_n": 621,
+      "label_js_bits": 0.0005253572106023886,
+      "mi_label_chamber_bits": 0.00044809461714306626,
+      "label1_rate_gap": 0.023213395316683788,
+      "score_js_bits": 1.0
+    },
+    {
+      "seed": 2,
+      "admitted_n": 1379,
+      "held_n": 621,
+      "label_js_bits": 0.00042442272236462453,
+      "mi_label_chamber_bits": 0.00036215313413701187,
+      "label1_rate_gap": 0.02087792619684037,
+      "score_js_bits": 1.0
+    }
+  ],
+  "warnings": [
+    "sparse bins: at least one score bin has fewer than 5 rows in total"
+  ],
+  "mean_gap": 0.16600419114530246,
+  "binning_sensitivity": {
+    "label_js_bits_by_binning": {
+      "10": 0.12216683717344543,
+      "5": 0.12216683717344543,
+      "20": 0.12216683717344543
+    },
+    "label_js_spread_bits": 0.0,
+    "score_js_bits_by_binning": {
+      "10": 1.0,
+      "5": 0.3376592024820748,
+      "20": 1.0
+    },
+    "score_js_spread_bits": 0.6623407975179252,
+    "stable": true,
+    "note": "label JS is binning-invariant by construction; score JS varies when a bin straddles tau; spreads are null when a chamber is empty (divergence undefined)"
+  }
+}
