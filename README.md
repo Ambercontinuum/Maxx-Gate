@@ -39,8 +39,10 @@ in bits and counts with falsifiers built in:
   the agent cannot rewrite it.
 - Cost is weighted by reversibility, with a named cost-bearer (operator)
   and recipient recorded separately.
-- Rehearsal is a release criterion, whole sets are gated, and the operator
-  gets one plain-reason card per action.
+- Whole sets are gated, and the operator gets one plain-reason card
+  per action. (Earlier drafts listed rehearsal as a release criterion;
+  no rehearsal step exists in this codebase or in the demo, so that
+  claim is removed, not shown.)
 - The sorter moves information "like" physics: a particle is one logged row,
   its "speed" is the scalar score in its own units, the door is a threshold
   at a frozen tau, the chambers are admitted / held, the demon's memory is
@@ -53,6 +55,36 @@ in bits and counts with falsifiers built in:
 - Not Petermann K. K in the gate is a stub (K=1.0), advice-only, never wired
   to Glimmer telemetry, and no K threshold is claimed from any run here.
 - Not joules, kelvin, or a physics budget. No energy claim is made anywhere.
+
+## What the demo video shows — and does not show
+
+Shown, and checkable against the run below: the seeded 8-action
+synthetic queue sorted by the gate, presented as a two-room interface
+visualisation of the verified run — one decision per action with its
+stated-arithmetic temperature and one plain reason, mock execution
+only for the 3 wraps and the 1 release, no execution for the 2 holds and
+2 escalates, and the closing ledger (tokens 800 / 400 / 400, attention
+8 -> 7, $1,090 held, irreversible baseline 6 -> gated 0, "Golden check
+PASSED."). The one-use permit for the release is enforced inside the
+harness (a release with no verified permit executes nothing, covered by
+the sidecar tests); the demo output does not print a permit ID, so the
+video states the permit in narration/captions and shows its effect —
+the release runs, the others do not.
+Also shown, as short proof beats recorded from real runs: the
+information sorter computing on held-out templates (admitted and held
+counts reconcile exactly; label separation about a tenth of a bit
+against a near-zero shuffled control; the flip rate under nudges is
+reported as sensitivity, not strength), the three-sidecar fleet example
+reconciling to the same totals, and the test suite passing (51 gate and
+sorter tests, 15 sidecar tests). Not shown in the video: any full Adult
+dataset run or CIFAR run, any K or Glimmer telemetry (stability in the
+demo is a stub, advice-only, and no K value is printed by the demo run),
+Spark/Wonder live proposals, and any real tool, payment, send, share,
+booking, post, or delete. Those are repo-only or appendix material
+below, not demo claims. A labelled live Meta run does
+exist as a document in `analysis/live-meta-run-2026-11-03.md`; it is not
+the video run, and its decisions and token split differ from the seeded
+golden numbers above — do not mix the two.
 
 ## Run it
 ```
@@ -80,10 +112,21 @@ example only, not a video beat. The separate local prototype
 `~/workspace/maxx-sidecar-demo/run_demo.py` is NOT in this repo, so
 do not cite it as a repo path. Video status, stated plainly: the video
 script for the single-sidecar form was approved by Amber as written on
-2026-11-02, then edited the same day for the reputation wording
-(432 words) and is NOT approved as written after that edit — it needs
-her re-approval before recording. The video itself is not yet recorded,
-and no freeze has been declared. Repo status: `Ambercontinuum/Maxx-Gate`,
+2026-11-02, then edited for the reputation wording (432 words) and is
+NOT approved as written after that edit. A final production script was
+assembled 2026-11-03 (background-only graphic clips, the Maxx avatar
+overlaid in editing, the demo run cut in at the sorting / ledger /
+close beats, one word-count-unchanged sentence swap so Maxwell's demon
+is described in the narration); that production script also needs
+Amber's re-approval before recording, the video itself is not yet
+recorded as a final take, and no freeze has been declared. A rendered,
+paced presentation of the demo output was made for editing use; it is
+not a raw terminal recording — run the command above to see the raw
+output, which prints in plain text in seconds. A v2 storyboard (18
+beats: story graphics, the two-room interface hero, and the sorter /
+fleet / test proof beats) superseded that production script later the
+same day; it likewise awaits Amber's approval before the final video
+is recorded. Repo status: `Ambercontinuum/Maxx-Gate`,
 main branch, core-only first push 2026-11-03, still private, not
 flipped public, not submitted. The Maxx Lab, partition, council, and
 energy work from the old `Ambercontinuum/Maxx` branch is intentionally
