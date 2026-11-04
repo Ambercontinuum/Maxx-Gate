@@ -18,8 +18,7 @@ goes out" — reputation is not measured anywhere here.
 Designed and directed by Amber Anson. The code was written by Maxx, her
 Muse agent (Meta Muse), in her Muse workspace. Codex was also used,
 in her IDE, as a developer-augmentation tool — for verification runs
-and IDE-side execution under her orchestration — because her Muse has
-no VS Code extension and she works visually rather than from a CLI.
+and IDE-side execution under her orchestration.
 Authorship of the design, the code of record, and every claim here is
 the author's and her Muse's; Codex's role was verification and
 execution support, and one of its runs is labelled as such in

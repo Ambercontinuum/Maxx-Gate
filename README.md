@@ -95,8 +95,7 @@ architecture.
   experimental design, interpretation, and claims stay with the author.
   One more tool, disclosed in full in `PROVENANCE.md`: Codex, used in
   the author's IDE for verification runs and IDE-side execution under
-  her orchestration — her Muse has no VS Code extension, and she
-  works visually, not from a CLI.
+  her orchestration.
 - **The gate itself calls no model.** It is deterministic arithmetic
   and runs offline on the seeded queue. Models propose and review;
   only the gate decides.
