@@ -1,5 +1,7 @@
 # Maxx — a Maxwell's-demon gate that moves information like physics
 
+**Demo video (3 minutes): https://youtu.be/Xuv3uOgpjss**
+
 ## Maxx, in one line
 Maxx is the intent, the sidecar is the enforcement. Maxx states what
 should happen to each proposed action — release, wrap, hold, or
@@ -117,16 +119,15 @@ NOT approved as written after that edit. A final production script was
 assembled 2026-11-03 (background-only graphic clips, the Maxx avatar
 overlaid in editing, the demo run cut in at the sorting / ledger /
 close beats, one word-count-unchanged sentence swap so Maxwell's demon
-is described in the narration); that production script also needs
-Amber's re-approval before recording, the video itself is not yet
-recorded as a final take, and no freeze has been declared. A rendered,
+is described in the narration); the final demo video was recorded
+from the v2 storyboard below on 2026-11-03 and is published at the
+link at the top of this file. No freeze has been declared. A rendered,
 paced presentation of the demo output was made for editing use; it is
 not a raw terminal recording — run the command above to see the raw
 output, which prints in plain text in seconds. A v2 storyboard (18
 beats: story graphics, the two-room interface hero, and the sorter /
 fleet / test proof beats) superseded that production script later the
-same day; it likewise awaits Amber's approval before the final video
-is recorded. Repo status: `Ambercontinuum/Maxx-Gate`,
+same day, and the final video was recorded from it. Repo status: `Ambercontinuum/Maxx-Gate`,
 main branch, core-only first push 2026-11-03, still private, not
 flipped public, not submitted. The Maxx Lab, partition, council, and
 energy work from the old `Ambercontinuum/Maxx` branch is intentionally
