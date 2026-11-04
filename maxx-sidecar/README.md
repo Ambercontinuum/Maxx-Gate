@@ -105,7 +105,7 @@ agg = fleet.aggregate(results)     # read-only sum, never a merged ledger
 ```
 python3 examples/single_agent_demo.py   # golden 1/2/3/2, 800/400/400, $1,090
 python3 examples/fleet_demo.py          # 3 demons, same aggregate total
-python3 -m unittest discover -s tests  # 15 tests, including Codex regression tests
+python3 -m unittest discover -s tests  # 25 tests, including regression tests from verification passes
 ```
 
 ## Video hero
