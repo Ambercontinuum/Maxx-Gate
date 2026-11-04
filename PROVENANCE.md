@@ -75,6 +75,16 @@ execution support, and one of its runs is labelled as such in
   presented as new results. Former framing was removed under the Nov 1
   framing reset; only what was built inside this project, through the
   Principal Architect invariants, travels forward.
+- The author's older `Ambercontinuum/Maxx` branch (Lab, partition,
+  council, and energy work) is a separate body of work and is
+  intentionally NOT in this repo. Codex verified commit `eb7e24c…` on
+  that branch on 2026-11-01; that verification does not cover this
+  repo, and the later combined-budgets change on that branch
+  (`43396a2b…`) was not Codex-verified.
+- The demo video was produced on 2026-11-03 from the final v2
+  storyboard and is published at the link in the README. Earlier
+  script drafts and their approval states are internal production
+  history, not part of this submission.
 
 ## Data-freshness rule
 No 2025 data is used in submission/interface copy in this codebase, per

@@ -236,37 +236,24 @@ decisions release 1 / hold 2 / wrap 3 / escalate 2; tokens 800 / 400 / 400;
 attention baseline 8 -> gated 7; money held $1,090; irreversible gated 0.
 
 ## Sidecar demo (video hero)
-The demo video hero is the single-agent sidecar: Agent proposes ->
-Harness -> Demon sidecar (separate process, owns permits + ledger) ->
-mock tools. The reproducible equivalent in this repo is
-`maxx-sidecar/examples/single_agent_demo.py` (same golden
-numbers, 25 sidecar tests). The fleet example in that package appears
-in the video only as a short proof beat; in scope it is a repo example —
-the demo's subject is the single sidecar. The separate local prototype
-`~/workspace/maxx-sidecar-demo/run_demo.py` is NOT in this repo, so
-do not cite it as a repo path. Video status, stated plainly: the video
-script for the single-sidecar form was approved by Amber as written on
-2026-11-02, then edited for the reputation wording (432 words) and is
-NOT approved as written after that edit. A final production script was
-assembled 2026-11-03 (background-only graphic clips, the Maxx avatar
-overlaid in editing, the demo run cut in at the sorting / ledger /
-close beats, one word-count-unchanged sentence swap so Maxwell's demon
-is described in the narration); the final demo video was recorded
-from the v2 storyboard below on 2026-11-03 and is published at the
-link at the top of this file. No freeze has been declared. A rendered,
-paced presentation of the demo output was made for editing use; it is
-not a raw terminal recording — run the command above to see the raw
-output, which prints in plain text in seconds. A v2 storyboard (18
-beats: story graphics, the two-room interface hero, and the sorter /
-fleet / test proof beats) superseded that production script later the
-same day, and the final video was recorded from it. Repo status: `Ambercontinuum/Maxx-Gate`,
-main branch, core-only first push 2026-11-03; the author flips it public
-and submits on 2026-11-04. The Maxx Lab, partition, council, and
-energy work from the old `Ambercontinuum/Maxx` branch is intentionally
-NOT in this repo. Codex verified `eb7e24c…` on the old branch; do not
-claim Codex verified the later combined-budgets change (`43396a2b…`)
-until a reply arrives — that change is covered here by the local
-25 sidecar tests, not by a Codex reply.
+
+The demo video's hero is the single-agent sidecar — the enforcement
+half of Maxx, running as its own process:
+
+- **The loop:** Agent proposes → Harness → Demon sidecar (separate
+  process; owns the permits and the ledger) → mock tools. Nothing
+  executes without the sidecar's permit.
+- **Run it yourself:** `python3 maxx-sidecar/examples/single_agent_demo.py`
+  reproduces the run in this repo with the same golden numbers above;
+  the sidecar package carries 25 tests.
+- **What the video shows:** a rendered, paced presentation of that
+  verified run, made for editing — not a raw terminal recording. Run
+  the command to see the raw output, which prints in plain text in
+  seconds. What the video shows and does not show is itemised in its
+  own section above.
+- **Scope:** the demo's subject is the single sidecar. The fleet
+  example in the same package appears in the video only as a short
+  proof beat; in scope it is a repo example.
 
 Sorter evidence, templates only, tau 0.50 (label divergence, 10 bins):
 synthetic label JS 0.359 bits vs shuffled ~0; Adult train label JS 0.122 bits,
