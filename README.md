@@ -250,6 +250,28 @@ count in a ledger the agent cannot rewrite is the instrument that makes
 these problems measurable — one logged action at a time, at the moment
 of action, where they actually happen. The gate does not solve them
 yet. The gate is how they get worked on.
+
+**Where the threat actually lives.** Not at the checkpoint — in three
+places around it:
+- **Upstream, in perception.** The gate scores the proposer's *declared*
+  trace; it never inspects the proposed text. A well-typed lie — a
+  payment declared as a reversible draft — passes intake and scores low.
+  The 2026-11-04 fix closes *malformed* declarations (a string `"false"`
+  is no longer read as true; a negative amount can no longer inflate a
+  budget). It does not, and cannot, close *dishonest* ones. Perception
+  is bracketed, not solved.
+- **At the band edges, in calibration.** The weights and bands are
+  stated scaffold values, not fitted thresholds, and a predictable
+  ladder invites a proposer to phrase actions just under a band. Only
+  comparable ledgers at scale — and the held-out AgentAbstain test —
+  can show whether that bunching is happening.
+- **Downstream, in production trust.** Permits are in-memory bearer
+  tokens bound to an action id, not to a payload hash; they carry no
+  expiry and no signature. The sidecar channel is unauthenticated
+  beyond process isolation. The ledger asserts its own consistency
+  but has no hash chain, and it reaches disk only on shutdown. None
+  of that matters in a mocked demo; all of it matters before a real
+  tool is wired in.
 - **Live tools.** Every execution path ends at a mock tool. Wiring the
   gate to a real tool, account, or payment rail is future work, left out
   deliberately: the gate had to be provable before it could be trusted
@@ -275,6 +297,24 @@ run as a fleet, and the fleet example in `maxx-sidecar/` is the seed of
 that — because a fleet's comparable ledgers are where these problems
 turn statistical. That direction is noted, not developed: today's
 subject is the one gate, doing its one job, on the record.
+
+Maxx is one local use of a broader constraint architecture — a layer
+outside the agent that governs execution through permits, invariants,
+and a ledger the agent cannot rewrite. The research direction is the
+architecture itself, at larger scales; this gate is what it looks like
+at the scale of one person's everyday actions.
+
+**Verification, on the record.** An independent verification pass over
+this repo on 2026-11-04 (at head `99424df5`) reproduced two intake
+defects — the string-boolean misread and the negative-amount budget
+inflation described above — before approving anything else: 66 tests,
+the golden demo, the full pipeline, and 1,544 JavaScript/Python parity
+cases passed, and credential scans of the files and the git history
+were clean. Both defects are fixed, with regression tests in both
+packages, in commit `621a2778`; the suites now run 61 + 25 tests. That
+loop — propose, verify, find the hole, fix it, pin it with a test — is
+the working method this project claims, and this paragraph is part of
+its evidence.
 
 ## Limits, stated plainly
 - The gate world is synthetic and mock-only. No real money, send, share,
