@@ -2,6 +2,43 @@
 
 **Demo video (3 minutes): https://youtu.be/Xuv3uOgpjss**
 
+**A submission to the Meta Global AI Developer Hackathon**, built
+during the event (October 26 – November 4, 2026). Everything claimed
+below was built in that window unless a section labels it background.
+
+## Abstract
+
+Maxx is a gate between an AI agent and execution — one recorded
+checkpoint that every consequential proposed action has to pass
+before anything runs.
+
+- **The moment it guards:** everyday actions where being wrong is
+  expensive or permanent — paying a bill, sending a message, sharing
+  a folder, booking a trip, posting publicly, deleting files.
+- **How a proposal is checked:** it is declared in a fixed
+  vocabulary — action type, what it touches, how much money moves,
+  whether it can be undone — then scored by stated arithmetic.
+- **How it is decided:** release, wrap, hold, or escalate, with one
+  plain reason. A release gets a one-use permit from a separate
+  sidecar process; a wrap executes a corrected, safer version of the
+  action; a hold or an escalate executes nothing.
+- **The record:** every decision lands in a ledger whose counts must
+  reconcile — tokens in = kept + discarded, decisions = entries.
+- **Seeded result:** eight proposed actions go from six irreversible
+  executions to zero; $1,090 of payments and bookings is held for
+  human decision; operator attention spent is 7 instead of 8.
+- **Live Meta run:** the same gate has also decided actions proposed
+  by Muse Spark 1.3 and reviewed by Muse Wonder 1.0 through the
+  Meta Model API.
+- **The science test:** behind the gate, a sorter backend tests
+  whether sorting a logged stream by a measured trace is informative
+  on a held-out variable rather than circular — falsifiers stated
+  in advance.
+- **The limit:** the world on the far side of the gate is mocked and
+  labelled as mocked. The gate is real; the tools are not.
+
+---
+
 ## Maxx, in one line
 Maxx is the intent, the sidecar is the enforcement. Maxx states what
 should happen to each proposed action — release, wrap, hold, or
@@ -9,6 +46,36 @@ escalate, with one plain reason — and the sidecar, a separate process
 outside the agent, enforces that decision: it issues a one-use permit
 only for a release and keeps the ledger the agent cannot rewrite.
 The agent proposes; Maxx decides the intent; the sidecar enforces it.
+
+## What "intent" means
+"Intent" is not what the agent proposed. A proposal is a claim about
+what to do, written by the system that wants to do it. Intent is what
+*should* happen — determined on the operator's side of the gate, in
+the operator's terms. Maxx determines it in four moves:
+
+1. **The proposal is stripped to its intent-bearing facts**: what kind
+   of action it is, what it touches (money, a person, a contract, a
+   schedule, a device), how much money moves, and whether it can be
+   undone. The agent's prose — its framing, its confidence, its
+   reasons — is never scored.
+2. **Those facts are scored by stated arithmetic** the operator can
+   read, dispute, and change. The rules are the operator's priorities
+   written as policy, not a model's judgment.
+3. **The gate states the intent as one decision with one plain
+   reason.** Release it as proposed. Wrap it: execute the safer
+   version that matches what the operator actually meant — the email
+   goes out as a corrected draft with the wrong attachment omitted,
+   because the intent was the message, not the attachment. Hold it.
+   Or escalate it to the human, because some actions are the human's
+   to intend, not the gate's.
+4. **The sidecar makes the stated intent binding.** No permit, no
+   execution; a wrap executes the wrapped version, never the original
+   (against mock tools in this prototype); the ledger records what
+   was decided and what ran, in counts that must reconcile.
+
+Proposal, intent, and enforcement in three different hands — the
+agent's, Maxx's, and the sidecar's. That separation is the whole
+architecture.
 
 ## Models and Meta products used
 - **Muse Spark 1.3** (`muse-spark-1.3`), via the **Meta Model API** —
