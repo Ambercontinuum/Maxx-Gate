@@ -240,6 +240,11 @@ attention baseline 8 -> gated 7; money held $1,090; irreversible gated 0.
 The demo video's hero is the single-agent sidecar — the enforcement
 half of Maxx, running as its own process:
 
+- **See it:** the [demo video](https://youtu.be/Xuv3uOgpjss)
+  (3 minutes) and the [interactive hero page](demo/maxx-gate-hero.html)
+  — the page animates the same run and carries a live in-browser port
+  of the gate; with GitHub Pages enabled it is served at
+  https://ambercontinuum.github.io/Maxx-Gate/.
 - **The loop:** Agent proposes → Harness → Demon sidecar (separate
   process; owns the permits and the ledger) → mock tools. Nothing
   executes without the sidecar's permit.
