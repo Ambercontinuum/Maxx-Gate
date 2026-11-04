@@ -1,4 +1,4 @@
-# Maxx — a Maxwell's-demon gate that moves information like physics
+# Maxx — inspired by Maxwell's demon: a gate that moves information like physics
 
 **Demo video (3 minutes): https://youtu.be/Xuv3uOgpjss**
 
