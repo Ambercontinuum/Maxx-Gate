@@ -1,6 +1,6 @@
 # Maxx — inspired by Maxwell's demon: a gate that moves information like physics
 
-**Demo video (3 minutes): https://youtu.be/Xuv3uOgpjss**
+**Demo video (3 minutes): https://youtu.be/6C1S8kOLLWA**
 
 **A submission to the Meta Global AI Developer Hackathon**, built
 during the event (October 26 – November 4, 2026). Everything claimed
@@ -189,7 +189,7 @@ in bits and counts with falsifiers built in:
 
 ## Demo video
 
-**Watch:** [the video](https://youtu.be/Xuv3uOgpjss) (3 minutes), or open
+**Watch:** [the video](https://youtu.be/6C1S8kOLLWA) (3 minutes), or open
 the [interactive hero page](demo/maxx-gate-hero.html) — it animates the
 same run and carries a live in-browser port of the gate. With GitHub
 Pages enabled, the page is served at
