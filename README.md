@@ -187,35 +187,56 @@ in bits and counts with falsifiers built in:
   to Glimmer telemetry, and no K threshold is claimed from any run here.
 - Not joules, kelvin, or a physics budget. No energy claim is made anywhere.
 
-## What the demo video shows — and does not show
+## Demo video
 
-Shown, and checkable against the run below: the seeded 8-action
-synthetic queue sorted by the gate, presented as a two-room interface
-visualisation of the verified run — one decision per action with its
-stated-arithmetic temperature and one plain reason, mock execution
-only for the 3 wraps and the 1 release, no execution for the 2 holds and
-2 escalates, and the closing ledger (tokens 800 / 400 / 400, attention
-8 -> 7, $1,090 held, irreversible baseline 6 -> gated 0, "Golden check
-PASSED."). The one-use permit for the release is enforced inside the
-harness (a release with no verified permit executes nothing, covered by
-the sidecar tests); the demo output does not print a permit ID, so the
-video states the permit in narration/captions and shows its effect —
-the release runs, the others do not.
-Also shown, as short proof beats recorded from real runs: the
-information sorter computing on held-out templates (admitted and held
-counts reconcile exactly; label separation about a tenth of a bit
-against a near-zero shuffled control; the flip rate under nudges is
-reported as sensitivity, not strength), the three-sidecar fleet example
-reconciling to the same totals, and the test suite passing (51 gate and
-sorter tests, 15 sidecar tests). Not shown in the video: any full Adult
-dataset run or CIFAR run, any K or Glimmer telemetry (stability in the
-demo is a stub, advice-only, and no K value is printed by the demo run),
-Spark/Wonder live proposals, and any real tool, payment, send, share,
-booking, post, or delete. Those are repo-only or appendix material
-below, not demo claims. A labelled live Meta run does
-exist as a document in `analysis/live-meta-run-2026-11-03.md`; it is not
-the video run, and its decisions and token split differ from the seeded
-golden numbers above — do not mix the two.
+**Watch:** [the video](https://youtu.be/Xuv3uOgpjss) (3 minutes), or open
+the [interactive hero page](demo/maxx-gate-hero.html) — it animates the
+same run and carries a live in-browser port of the gate. With GitHub
+Pages enabled, the page is served at
+https://ambercontinuum.github.io/Maxx-Gate/.
+
+The video is a rendered, paced presentation of a verified run — not a
+raw terminal recording. Its subject is the single-agent sidecar:
+agent proposes → harness → sidecar (a separate process; owns the
+permits and the ledger) → mock tools.
+
+**Shown:**
+
+- The seeded 8-action queue as a two-room visualisation of the verified
+  run: one decision per action, with its stated-arithmetic temperature
+  and one plain reason.
+- Mock execution for the 3 wraps and the 1 release only. Nothing
+  executes for the 2 holds and the 2 escalates.
+- The closing ledger: tokens 800 / 400 / 400; attention 8 → 7; $1,090
+  held; irreversible 6 → 0; "Golden check PASSED."
+- The one-use permit's effect. The permit is enforced inside the
+  harness — a release with no verified permit executes nothing, covered
+  by the sidecar tests — but the run prints no permit ID, so the video
+  states it in narration and captions and shows its effect: the release
+  runs, the others do not.
+- Short proof beats, recorded from real runs: the information sorter on
+  held-out templates (admitted and held counts reconcile exactly; label
+  separation about a tenth of a bit against a near-zero shuffled
+  control; the flip rate under nudges reported as sensitivity, not
+  strength); the three-sidecar fleet example reconciling to the same
+  totals; and the test suite passing (51 gate and sorter tests, 15
+  sidecar tests — the counts in the recorded video).
+
+**Not shown:**
+
+- Any full Adult dataset run, or any CIFAR run.
+- Any K or Glimmer telemetry: stability in the demo is a stub,
+  advice-only, and the run prints no K value.
+- Muse Spark or Muse Wonder live proposals.
+- Any real tool, payment, send, share, booking, post, or delete.
+
+**Not the video run:** a labelled live Meta run exists as a document,
+`analysis/live-meta-run-2026-11-03.md`. It is not the video run; its
+decisions and token split differ from the seeded numbers above. Do not
+mix the two.
+
+To run the hero run yourself, use the sidecar demo command in
+"Get started" below — it prints the same golden numbers in seconds.
 
 ## Get started in under a minute
 Needs Python 3 and two packages the sorter uses (numpy, pandas);
@@ -247,39 +268,15 @@ hero page from the video: open it in any browser, no server needed.
    Adult train/test templates (first 2,000 rows each).
 3. A combined report in `results/combined-report.json`.
 
+Sorter output in that run — templates only, tau 0.50 (label divergence,
+10 bins): synthetic label JS 0.359 bits vs shuffled ~0; Adult train label
+JS 0.122 bits, test 0.116 bits, shuffled ~0, train/test agreement on
+held-out labels. Score-bin divergence is constructional and is never
+presented as evidence.
+
 Golden gate numbers (locked, seeded run):
 decisions release 1 / hold 2 / wrap 3 / escalate 2; tokens 800 / 400 / 400;
 attention baseline 8 -> gated 7; money held $1,090; irreversible gated 0.
-
-## Sidecar demo (video hero)
-
-The demo video's hero is the single-agent sidecar — the enforcement
-half of Maxx, running as its own process:
-
-- **See it:** the [demo video](https://youtu.be/Xuv3uOgpjss)
-  (3 minutes) and the [interactive hero page](demo/maxx-gate-hero.html)
-  — the page animates the same run and carries a live in-browser port
-  of the gate; with GitHub Pages enabled it is served at
-  https://ambercontinuum.github.io/Maxx-Gate/.
-- **The loop:** Agent proposes → Harness → Demon sidecar (separate
-  process; owns the permits and the ledger) → mock tools. Nothing
-  executes without the sidecar's permit.
-- **Run it yourself:** `python3 maxx-sidecar/examples/single_agent_demo.py`
-  reproduces the run in this repo with the same golden numbers above;
-  the sidecar package carries 25 tests.
-- **What the video shows:** a rendered, paced presentation of that
-  verified run, made for editing — not a raw terminal recording. Run
-  the command to see the raw output, which prints in plain text in
-  seconds. What the video shows and does not show is itemised in its
-  own section above.
-- **Scope:** the demo's subject is the single sidecar. The fleet
-  example in the same package appears in the video only as a short
-  proof beat; in scope it is a repo example.
-
-Sorter evidence, templates only, tau 0.50 (label divergence, 10 bins):
-synthetic label JS 0.359 bits vs shuffled ~0; Adult train label JS 0.122 bits,
-test 0.116 bits, shuffled ~0, train/test agreement on held-out labels.
-Score-bin divergence is constructional and is never presented as evidence.
 
 ## Layout
 - `maxx/` — the gate: intake, temperature (stated arithmetic), gate/permit
