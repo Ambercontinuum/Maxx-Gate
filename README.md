@@ -10,6 +10,32 @@ outside the agent, enforces that decision: it issues a one-use permit
 only for a release and keeps the ledger the agent cannot rewrite.
 The agent proposes; Maxx decides the intent; the sidecar enforces it.
 
+## Models and Meta products used
+- **Muse Spark 1.3** (`muse-spark-1.3`), via the **Meta Model API** —
+  proposed the actions in the documented live run
+  (`analysis/live-meta-run-2026-11-03.md`).
+- **Muse Wonder 1.0** (`muse-wonder-1.0`), via the **Meta Model API** —
+  reviewed the live run's proposals and the saved sorter results.
+  The review never decides; the gate decides.
+- **Muse Glimmer 30B** (open-weight) — the spectral sweep behind the
+  appendix analysis (955,136 rows; `analysis/`, `datasets/INVENTORY.md`).
+  Its Petermann-K checks did not beat the conventional baselines, and
+  nothing in the gate consumes its output: the gate's stability input
+  is a labelled stub.
+- **Built with Meta Muse** — the code in this repo was written by Maxx,
+  the author's Muse agent, under the author's direction and sign-off.
+  AmberContinuum is human-led by design: research direction,
+  experimental design, interpretation, and claims stay with the author.
+  One more tool, disclosed in full in `PROVENANCE.md`: Codex, used in
+  the author's IDE for verification runs and IDE-side execution under
+  her orchestration — her Muse has no VS Code extension, and she
+  works visually, not from a CLI.
+- **The gate itself calls no model.** It is deterministic arithmetic
+  and runs offline on the seeded queue. Models propose and review;
+  only the gate decides.
+- **Not used:** Muse Image, Voice Transcribe, and SAM 3.1 are named in
+  the hackathon guide and were never run in this project.
+
 ## Why
 An AI assistant acting on an everyday consequential action — paying a bill,
 sending to the wrong person, sharing a folder, booking a nonrefundable trip,
@@ -27,6 +53,27 @@ stream by a measured trace in a way that is actually informative — that is,
 does the separation show up on a held-out independent variable, not just on
 the score it sorted on? Sorting on X and then reporting that chambers differ
 in X is circular and proves nothing. This codebase exists to catch that.
+
+## How it works — one action through the gate
+1. The agent proposes an action. Intake reads its trace: what it touches
+   (money, a contract, a person, a schedule, a device) and whether it is
+   irreversible.
+2. The gate scores the action with stated arithmetic — a floor of 15,
+   plus the trace weights, plus 15 if irreversible, capped at 98. That
+   score is the action's temperature. Nothing about it is learned or
+   hidden; the same inputs always give the same score.
+3. The gate decides by its ladder: release, wrap, hold, or escalate,
+   with one plain reason. In the seeded run, paying the $240 bill scores
+   90 and escalates to the human; drafting a reply scores 15 and releases.
+4. The sidecar enforces the decision. A release gets a one-use permit,
+   which the harness verifies before anything runs. A wrap runs a
+   corrected, safer version of the action instead (a draft with the wrong
+   attachment omitted, a limited expiring link, an archive instead of a
+   delete) and carries a mock receipt, not a permit. A hold or an
+   escalate executes nothing.
+5. Every decision is written to the ledger with its cost-bearer, and the
+   ledger's counts must reconcile — tokens in = kept + discarded,
+   decisions = entries — or the run fails its own checks.
 
 ## What is the innovation
 Not any single piece — per-action approval, budgets, reversibility grading,
@@ -88,11 +135,29 @@ exist as a document in `analysis/live-meta-run-2026-11-03.md`; it is not
 the video run, and its decisions and token split differ from the seeded
 golden numbers above — do not mix the two.
 
-## Run it
+## Get started in under a minute
+Needs Python 3 and two packages the sorter uses (numpy, pandas);
+everything else is the standard library. No accounts, no API keys.
+
 ```
+git clone https://github.com/Ambercontinuum/Maxx-Gate.git
+cd Maxx-Gate
+pip install numpy pandas
 python3 run_all.py
-python3 -m unittest discover -s tests
 ```
+
+Then the pieces on their own:
+
+```
+python3 maxx-sidecar/examples/single_agent_demo.py
+python3 -m unittest discover -s tests
+cd maxx-sidecar && python3 -m unittest discover -s tests
+```
+
+The sidecar demo is the video hero's run — it prints the golden numbers
+below and "Golden check PASSED." The two test commands run 51 gate and
+sorter tests and 15 sidecar tests. And `demo/maxx-gate-hero.html` is the
+hero page from the video: open it in any browser, no server needed.
 
 `run_all.py` runs, in one command:
 1. The gate demo on a seeded 8-action synthetic queue (mock tools only).
@@ -128,8 +193,8 @@ output, which prints in plain text in seconds. A v2 storyboard (18
 beats: story graphics, the two-room interface hero, and the sorter /
 fleet / test proof beats) superseded that production script later the
 same day, and the final video was recorded from it. Repo status: `Ambercontinuum/Maxx-Gate`,
-main branch, core-only first push 2026-11-03, still private, not
-flipped public, not submitted. The Maxx Lab, partition, council, and
+main branch, core-only first push 2026-11-03; the author flips it public
+and submits on 2026-11-04. The Maxx Lab, partition, council, and
 energy work from the old `Ambercontinuum/Maxx` branch is intentionally
 NOT in this repo. Codex verified `eb7e24c…` on the old branch; do not
 claim Codex verified the later combined-budgets change (`43396a2b…`)
@@ -150,6 +215,16 @@ Score-bin divergence is constructional and is never presented as evidence.
   (same golden numbers) and `examples/fleet_demo.py` (repo example only).
   See `maxx-sidecar/README.md` and `maxx-sidecar/CONNECTION.md`.
 - `data/queue.json` — the seeded 8-action synthetic queue.
+- `demo/` — the two-room hero page from the video (`maxx-gate-hero.html`):
+  a self-contained page that animates the seeded run and carries the full
+  run as plain text underneath it, with pause/replay controls,
+  fit-to-screen scaling, and a reduced-motion path that shows the closed
+  ledger immediately. Under the text sits a live port of the gate itself
+  — the sidecar's arithmetic and decision ladder in JavaScript, verified
+  output-identical to the Python sidecar on the seeded queue (temperatures,
+  decisions, reasons, wrapped versions, ledger totals). Run the queue, or
+  build your own action and watch it decide. The repo root `index.html`
+  redirects here, so a GitHub Pages deployment lands visitors on it.
 - `sorter/` — the Maxwell's-demon isomorph sorter (bits/counts only).
 - `datasets/` — synthetic validation table, Adult templates, and the full
   dataset inventory with hashes and licences. Full Adult/CIFAR files are
@@ -160,6 +235,43 @@ Score-bin divergence is constructional and is never presented as evidence.
 - `tests/` — 51 tests (gate + sorter, including the empty-chamber sorter
   tests). Verified 2026-11-02: 51 pass locally.
 - `results/` — generated by `run_all.py`; do not hand-edit.
+
+## The open problems — what this gate exists to work on
+None of what follows is solved — here, or anywhere in the published
+record we know of. These are the live problems of AI governance, and
+they are the research program, not an apology. Maxx's claim is narrower
+and stronger than a solution: before a problem can be solved it has to
+be measurable, and a checkpoint that scores every proposed action with
+stated arithmetic, enforces with one-use permits, and reconciles every
+count in a ledger the agent cannot rewrite is the instrument that makes
+these problems measurable — one logged action at a time, at the moment
+of action, where they actually happen. The gate does not solve them
+yet. The gate is how they get worked on.
+- **Live tools.** Every execution path ends at a mock tool. Wiring the
+  gate to a real tool, account, or payment rail is future work, left out
+  deliberately: the gate had to be provable before it could be trusted
+  with anything real.
+- **The AgentAbstain held-out test.** The dataset is in the inventory
+  with its licence verified, but the conversion to the frozen table and
+  the pre-registered held-out test have not been run.
+- **Full-dataset sorter runs.** Adult runs here are templates only (the
+  first 2,000 rows); the full 32,561 / 16,281-row runs are not done.
+  CIFAR-10 is verified by hash only — no classifier, no run.
+- **K in motion.** The gate's stability input is an advice-only stub.
+  Tracking Petermann K across decoding steps — the run the Glimmer slice
+  analysis points to — is not built.
+- **Live proposals as a repo command.** One live Meta-model run is
+  documented in `analysis/live-meta-run-2026-11-03.md`; it is a record of
+  a run, not a reproducible command in this repo.
+- **Production hardening.** No persistence, accounts, permissions UI, or
+  deployment packaging. This is a research prototype with a conserved
+  ledger, not a shipped product.
+
+The shape also extends past one agent — the same stated arithmetic can
+run as a fleet, and the fleet example in `maxx-sidecar/` is the seed of
+that — because a fleet's comparable ledgers are where these problems
+turn statistical. That direction is noted, not developed: today's
+subject is the one gate, doing its one job, on the record.
 
 ## Limits, stated plainly
 - The gate world is synthetic and mock-only. No real money, send, share,

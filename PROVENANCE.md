@@ -14,6 +14,17 @@ Gate hold reasons in this repo use the Nov 2 reputation wording:
 "Verify before money moves, files are lost, or an irreversible action
 goes out" — reputation is not measured anywhere here.
 
+## How it was built
+Designed and directed by Amber Anson. The code was written by Maxx, her
+Muse agent (Meta Muse), in her Muse workspace. Codex was also used,
+in her IDE, as a developer-augmentation tool — for verification runs
+and IDE-side execution under her orchestration — because her Muse has
+no VS Code extension and she works visually rather than from a CLI.
+Authorship of the design, the code of record, and every claim here is
+the author's and her Muse's; Codex's role was verification and
+execution support, and one of its runs is labelled as such in
+`analysis/live-meta-run-2026-11-03.md`.
+
 ## New work in this codebase (Oct 26–Nov 4, 2026 window)
 - The Maxx gate package (`maxx/`): intake, stated-arithmetic temperature,
   gate/permit enforcer, conserved ledger, mock tools, fixed-rule arm,

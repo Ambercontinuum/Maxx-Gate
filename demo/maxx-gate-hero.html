@@ -2,12 +2,15 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Maxx — the demon at the gate</title>
 <style>
   * { margin:0; padding:0; box-sizing:border-box; }
-  html,body { width:1920px; height:1080px; overflow:hidden; background:#0a0a0f;
+  html,body { background:#0a0a0f;
     font-family:"Segoe UI", "Helvetica Neue", Arial, sans-serif; color:#ece7db; }
-  #stage { position:relative; width:1920px; height:1080px;
+  body { overflow-x:hidden; }
+  #scaler { position:relative; width:1920px; height:1080px; margin:0 auto; overflow:hidden; }
+  #stage { position:absolute; left:0; top:0; width:1920px; height:1080px; transform-origin:0 0;
     background:radial-gradient(1200px 700px at 50% 30%, #14141d 0%, #0a0a0f 70%); }
   header { position:absolute; top:0; left:0; right:0; height:92px; display:flex;
     align-items:center; padding:0 48px; border-bottom:1px solid #23232e; }
@@ -75,10 +78,44 @@
   #tokbar { width:230px; height:16px; border:1px solid #33333f; border-radius:8px; overflow:hidden; display:flex; }
   #tokkept { width:0%; background:#c9a227; transition:width 1.2s ease; height:100%; }
   #tokdisc { width:0%; background:#3a3a46; transition:width 1.2s ease; height:100%; }
+  #controls { display:flex; gap:12px; align-items:center; flex-wrap:wrap; padding:14px 20px; }
+  #controls .hint { font-size:15px; color:#9d97a8; letter-spacing:1px; }
+  #controls button { font:inherit; font-size:16px; letter-spacing:1px; color:#e8c95a;
+    background:#14141d; border:1px solid #57451a; border-radius:999px; padding:8px 18px; cursor:pointer; }
+  #controls button:focus-visible { outline:3px solid #e8c95a; outline-offset:2px; }
+  #textversion { max-width:900px; margin:0 auto; padding:36px 24px 64px; line-height:1.55; }
+  #textversion h1 { font-size:28px; margin-bottom:6px; }
+  #textversion h2 { font-size:21px; margin:26px 0 8px; color:#e8c95a; }
+  #textversion p, #textversion li { font-size:17px; color:#d8d2c2; }
+  #textversion ul, #textversion ol { padding-left:24px; }
+  #textversion li { margin:5px 0; }
+  #textversion .dec { font-weight:700; color:#f4efe2; }
+  #livegate { max-width:900px; margin:0 auto; padding:8px 24px 72px; line-height:1.55; }
+  #livegate h2 { font-size:24px; margin-bottom:6px; }
+  #livegate h3 { font-size:19px; margin:22px 0 8px; color:#e8c95a; }
+  #livegate p, #livegate li, #livegate td, #livegate th { font-size:16px; color:#d8d2c2; }
+  #livegate table { border-collapse:collapse; width:100%; margin-top:12px; }
+  #livegate th, #livegate td { border:1px solid #33333f; padding:8px 10px; text-align:left; vertical-align:top; }
+  #livegate th { color:#f4efe2; background:#14141d; }
+  #livegate .math { color:#9d97a8; font-size:14px; }
+  #livegate button { font:inherit; font-size:16px; letter-spacing:1px; color:#e8c95a; background:#14141d; border:1px solid #57451a; border-radius:999px; padding:8px 18px; cursor:pointer; }
+  #livegate button:focus-visible, #livegate input:focus-visible, #livegate select:focus-visible { outline:3px solid #e8c95a; outline-offset:2px; }
+  #livegate label { display:inline-flex; gap:6px; align-items:center; margin:4px 14px 4px 0; font-size:16px; color:#d8d2c2; }
+  #livegate input[type="number"] { width:90px; background:#0e0e14; color:#ece7db; border:1px solid #33333f; border-radius:6px; padding:5px 8px; font:inherit; }
+  #livegate select { background:#0e0e14; color:#ece7db; border:1px solid #33333f; border-radius:6px; padding:5px 8px; font:inherit; }
+  #livegate .verdict { font-weight:700; color:#f4efe2; }
+  #livegate #lg-ledger { margin-top:14px; border:1px solid #2a2a33; border-radius:12px; padding:14px 18px; background:#0e1512; }
+  #livegate #lg-custom-result { margin-top:12px; border:1px solid #33333f; border-radius:12px; padding:14px 18px; background:#101018; }
 </style>
 </head>
 <body>
-<div id="stage">
+<div id="controls">
+  <button id="btn-pause" type="button">Pause animation</button>
+  <button id="btn-replay" type="button">Replay</button>
+  <span class="hint">An animation of one verified run. The full run in plain text is below the stage.</span>
+</div>
+<div id="scaler">
+<div id="stage" aria-hidden="true">
   <header>
     <div class="brand">MAXX<span>.</span></div>
     <div class="subtitle">at the gate — every proposed action is sorted before anything can happen</div>
@@ -119,6 +156,159 @@
       <div id="tokbar"><div id="tokkept"></div><div id="tokdisc"></div></div></div></div>
   </div>
 </div>
+</div>
+
+<section id="textversion">
+  <h1>Maxx — at the gate: the run in text</h1>
+  <p>This page animates one verified run of the Maxx gate on a seeded, synthetic queue of eight everyday actions. The world is mocked: no real payment, send, share, booking, post, or delete happens. Everything the animation shows is below, as plain text.</p>
+  <h2>How the gate decides</h2>
+  <p>Each proposed action is scored by stated arithmetic: a floor of 15, plus trace weights (money 40, contract 25, person 20, schedule 15, device 10), plus 15 if the action is irreversible, capped at 98. The gate then releases, wraps, holds, or escalates the action. Only a release carries a one-use permit, and the permit is enforced by a separate sidecar process that also keeps the ledger — the agent cannot rewrite it.</p>
+  <h2>The eight actions</h2>
+  <ol>
+    <li>Pay the electricity bill — $240 — score 90 — <span class="dec">ESCALATED</span> to a human. Money held at the gate.</li>
+    <li>Send email with the wrong attachment, to a client — score 50 — <span class="dec">WRAPPED</span>: becomes &ldquo;Send — corrected draft, attachment omitted.&rdquo;</li>
+    <li>Share folder with a partner, external — score 50 — <span class="dec">WRAPPED</span>: becomes &ldquo;Share — limited, expiring link.&rdquo;</li>
+    <li>Book the trip, nonrefundable — $850 — score 85 — <span class="dec">ESCALATED</span> to a human. Money held at the gate.</li>
+    <li>Post publicly — score 50 — <span class="dec">HELD</span>. Not executed.</li>
+    <li>Delete project files — score 40 — <span class="dec">WRAPPED</span>: becomes &ldquo;Archive instead of delete.&rdquo;</li>
+    <li>Draft a reply, draft only — score 15 — <span class="dec">RELEASED</span>, with the run&rsquo;s only one-use permit.</li>
+    <li>Curiosity — research rabbit hole, no trace — score 15 — <span class="dec">HELD</span> (parked). Not executed.</li>
+  </ol>
+  <h2>The ledger, closed</h2>
+  <ul>
+    <li>Released 1 &middot; Wrapped 3 &middot; Held 2 &middot; Escalated 2 — all eight actions accounted for.</li>
+    <li>Money held, not moved: $1,090.</li>
+    <li>Human checks: 8 &rarr; 7.</li>
+    <li>Irreversible actions passed: 0 of 6.</li>
+    <li>Tokens: 800 in = 400 kept + 400 discarded.</li>
+  </ul>
+  <p>Ledger closed — every count reconciles. Reproduce it: <code>python3 maxx-sidecar/examples/single_agent_demo.py</code> prints the same numbers and &ldquo;Golden check PASSED.&rdquo;</p>
+</section>
+
+<section id="livegate">
+  <h2>Run the gate yourself — live in this page</h2>
+  <p>The animation above is a replay. This is the deciding itself: the stated arithmetic and decision ladder from <code>maxx-sidecar/maxx_sidecar/gate.py</code>, ported to JavaScript and running entirely in your browser, in the same no-budget configuration as the demo. Same inputs, same outputs — the run below checks its own totals against the Python golden run. The world is still mocked: nothing executes here and no permit leaves this page. In the real system, enforcement belongs to the Python sidecar, a separate process. This page exists so you can watch the gate think.</p>
+  <p><button id="lg-run" type="button">Run the seeded queue through the gate</button></p>
+  <div id="lg-results"></div>
+  <div id="lg-ledger" hidden></div>
+  <h3>Build your own action</h3>
+  <p>Pick a type, give it a trace, and gate it. The temperature is arithmetic, not a model: a floor of 15, plus money 40, contract 25, person 20, schedule 15, device 10, plus 15 if irreversible, capped at 98. Bands: at 85 the gate escalates, at 70 it holds, at 40 it wraps send / share / delete and holds the rest — and a cool irreversible action still holds.</p>
+  <div id="lg-form">
+    <p>
+      <label>Type
+        <select id="lg-type">
+          <option value="pay">pay</option>
+          <option value="send" selected>send</option>
+          <option value="share">share</option>
+          <option value="book">book</option>
+          <option value="post">post</option>
+          <option value="delete">delete</option>
+          <option value="draft">draft</option>
+          <option value="curiosity">curiosity</option>
+        </select>
+      </label>
+      <label>Amount $ <input id="lg-amount" type="number" min="0" step="1" value="0"></label>
+    </p>
+    <p>
+      <span>Trace:</span>
+      <label><input type="checkbox" class="lg-trace" value="money"> money</label>
+      <label><input type="checkbox" class="lg-trace" value="contract"> contract</label>
+      <label><input type="checkbox" class="lg-trace" value="person" checked> person</label>
+      <label><input type="checkbox" class="lg-trace" value="schedule"> schedule</label>
+      <label><input type="checkbox" class="lg-trace" value="device"> device</label>
+      <label><input type="checkbox" id="lg-irrev" checked> irreversible</label>
+    </p>
+    <p>
+      <label>Stability K <input id="lg-k" type="number" step="0.1" value="1.0"></label>
+      <label>Flip rate <input id="lg-flip" type="number" step="0.05" min="0" max="1" value="0"></label>
+      <span class="math">Clear both stability fields and the signal goes missing — watch what that does to an irreversible action.</span>
+    </p>
+    <p><button id="lg-gate" type="button">Gate it</button></p>
+  </div>
+  <div id="lg-custom-result" hidden></div>
+</section>
+
+<script>
+// GATE-CORE-START — a line-for-line port of maxx_sidecar cost.py, stability.py
+// and gate.py (no-budget configuration, as in the demo). Verified against the
+// Python run: identical temperatures, decisions and ledger totals.
+const TRACE_WEIGHTS = { money: 40, contract: 25, person: 20, schedule: 15, device: 10 };
+const WRAP_TYPES = new Set(['send', 'share', 'delete']);
+function temperatureOf(a) {
+  let t = 15 + a.trace.reduce((s, x) => s + TRACE_WEIGHTS[x], 0);
+  if (!a.reversible) t += 15;
+  return Math.min(t, 98);
+}
+function mathOf(a) {
+  const parts = ['15'];
+  for (const x of a.trace) parts.push(TRACE_WEIGHTS[x] + ' (' + x + ')');
+  if (!a.reversible) parts.push('15 (irreversible)');
+  const raw = 15 + a.trace.reduce((s, x) => s + TRACE_WEIGHTS[x], 0) + (!a.reversible ? 15 : 0);
+  return parts.join(' + ') + ' = ' + raw + (raw > 98 ? ', capped at 98' : '');
+}
+function advise(k, flip) {
+  if (k === null && flip === null) return { k: null, flip_rate: null, advice: 'proceed', source: 'OFF' };
+  const spike = (k !== null && k >= 5.0) || (flip !== null && flip > 0.2);
+  return { k: k, flip_rate: flip, advice: spike ? 'verify' : 'proceed', source: 'STUB' };
+}
+function isMissing(s) { return !s || s.source === 'OFF' || (s.k === null && s.flip_rate === null); }
+function wrapVersion(a) {
+  if (a.type === 'send') return 'Corrected draft \u2014 review before sending: report draft, attachment omitted for verification \u2014 the original attachment was incorrect and is not included. Attach the correct file before sending.';
+  if (a.type === 'share') return 'Limited expiring link version of: ' + a.description + ' (external share held, link expires, scope limited)';
+  if (a.type === 'delete') return 'Archive instead of delete: ' + a.description + ' (move to archive, do not permanently delete)';
+  return 'Wrapped version of: ' + a.description;
+}
+function gateDecide(a) {
+  const temp = temperatureOf(a);
+  const stability = advise(a.stability_k != null ? a.stability_k : null, a.flip_rate != null ? a.flip_rate : null);
+  const D = (decision, reason_plain, wrapped_version, attention_required) =>
+    ({ decision: decision, permit_id: decision === 'release' ? 'permit-' + a.id + '-page' : null,
+       reason_plain: reason_plain, wrapped_version: wrapped_version,
+       temperature: temp, attention_required: attention_required });
+  if (a.type === 'curiosity') return D('hold', 'Parked \u2014 no physical trace, no budget spent.', null, true);
+  if (isMissing(stability) && !a.reversible) return D('hold', 'Held \u2014 a stability check is missing and this action cannot be undone.', null, true);
+  if (temp >= 85) {
+    const kind = !a.reversible ? 'irreversible' : 'reversible';
+    return D('escalate', 'Escalated \u2014 ' + temp + ' degrees, ' + kind + '. A human must approve this.', null, true);
+  }
+  if (stability.advice === 'verify') return D('hold', 'Held \u2014 ' + temp + ' degrees, stability advice is verify. Verify before money moves, files are lost, or an irreversible action goes out.', null, true);
+  if (temp >= 70) return D('hold', 'Held \u2014 ' + temp + ' degrees. Verify before money moves, files are lost, or an irreversible action goes out.', null, true);
+  if (temp >= 40 && WRAP_TYPES.has(a.type)) return D('wrap', 'Wrapped \u2014 ' + temp + ' degrees. Here is a safer version; the original is not released.', wrapVersion(a), true);
+  if (temp >= 40) return D('hold', 'Held \u2014 ' + temp + ' degrees. A human should read this before release.', null, true);
+  if (!a.reversible) return D('hold', 'Held \u2014 ' + temp + ' degrees, irreversible. Cool temperature alone does not permit an irreversible release.', null, true);
+  return D('release', 'Released \u2014 ' + temp + ' degrees, reversible, cost-bearer operator.', null, false);
+}
+const QUEUE = [
+  { id: 'pay-240', type: 'pay', description: 'Pay $240 bill', trace: ['money', 'person'], amount_usd: 240, reversible: false, recipient: 'utility provider', stability_k: 1.2, flip_rate: 0.0 },
+  { id: 'send-wrong-attachment', type: 'send', description: 'Send email to client with wrong attachment', trace: ['person'], amount_usd: 0, reversible: false, recipient: 'client', stability_k: 1.1, flip_rate: 0.0 },
+  { id: 'share-folder', type: 'share', description: 'Share folder externally', trace: ['person'], amount_usd: 0, reversible: false, recipient: 'external partner', stability_k: 1.3, flip_rate: 0.1 },
+  { id: 'book-trip', type: 'book', description: 'Book nonrefundable trip', trace: ['money', 'schedule'], amount_usd: 850, reversible: false, recipient: 'travel provider', stability_k: 8.5, flip_rate: 0.4 },
+  { id: 'post-public', type: 'post', description: 'Post publicly', trace: ['person'], amount_usd: 0, reversible: false, recipient: 'public', stability_k: 1.0, flip_rate: 0.0 },
+  { id: 'delete-files', type: 'delete', description: 'Delete files', trace: ['device'], amount_usd: 0, reversible: false, recipient: '', stability_k: 1.0, flip_rate: 0.0 },
+  { id: 'draft-only', type: 'draft', description: 'Draft only, do not send', trace: [], amount_usd: 0, reversible: true, recipient: '', stability_k: 1.0, flip_rate: 0.0 },
+  { id: 'curiosity-hole', type: 'curiosity', description: 'Curiosity rabbit hole, no action attached', trace: [], amount_usd: 0, reversible: true, recipient: '', stability_k: 1.0, flip_rate: 0.0 }
+];
+function runQueue() {
+  const L = { decisions: { release: 0, hold: 0, wrap: 0, escalate: 0 }, tokens_in: 0, tokens_retained: 0,
+    tokens_discarded: 0, money_at_risk: 0, money_held: 0, attention_gated: 0,
+    irreversible_baseline: 0, irreversible_gated: 0, rows: [] };
+  for (const a of QUEUE) {
+    const d = gateDecide(a);
+    L.decisions[d.decision]++;
+    L.tokens_in += 100;
+    if (d.decision === 'release' || d.decision === 'wrap') L.tokens_retained += 100; else L.tokens_discarded += 100;
+    if (d.attention_required) L.attention_gated++;
+    L.money_at_risk += a.amount_usd;
+    if (!a.reversible) L.irreversible_baseline++;
+    if (d.decision === 'hold' || d.decision === 'wrap' || d.decision === 'escalate') L.money_held += a.amount_usd;
+    if (d.decision === 'release' && !a.reversible) L.irreversible_gated++;
+    L.rows.push({ action: a, decision: d });
+  }
+  L.attention_baseline = QUEUE.length;
+  return L;
+}
+// GATE-CORE-END
+</script>
 
 <script>
 const ACTIONS = [
@@ -152,7 +342,16 @@ function bump() {
   $('n-hold').textContent = counts.hold;  $('n-esc').textContent = counts.escalate;
   $('n-money').textContent = '$' + money.toLocaleString('en-US');
 }
-const wait = ms => new Promise(r => setTimeout(r, ms));
+let paused = false;
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+async function wait(ms) {
+  let remaining = ms;
+  while (remaining > 0) {
+    if (paused) { await sleep(80); continue; }
+    const step = Math.min(remaining, 60);
+    await sleep(step); remaining -= step;
+  }
+}
 async function run() {
   await wait(1800);
   for (let i = 0; i < ACTIONS.length; i++) {
@@ -182,7 +381,101 @@ async function run() {
   await wait(900);
   $('closed').style.opacity = 1;
 }
-run();
+function finishInstant() {
+  chips.forEach(el => { el.style.transition = 'none'; });
+  $('tokkept').style.transition = 'none'; $('tokdisc').style.transition = 'none';
+  for (let i = 0; i < ACTIONS.length; i++) {
+    const a = ACTIONS[i], el = chips[i];
+    el.classList.add('judged');
+    if (a.becomes) el.querySelector('.main').textContent = a.becomes;
+    const pos = ZONE_POS[a.zone](a.slot);
+    el.style.left = pos.left; el.style.top = pos.top;
+    counts[a.decision]++; money += a.money;
+  }
+  bump();
+  if (money > 0) { const hm = $('heldmoney'); hm.textContent = '$' + money.toLocaleString('en-US') + ' HELD AT THE GATE'; hm.style.opacity = 1; }
+  $('n-checks').textContent = '8 \u2192 7';
+  $('n-tok').textContent = '800 = 400 + 400';
+  $('tokkept').style.width = '50%'; $('tokdisc').style.width = '50%';
+  $('closed').style.opacity = 1;
+}
+function fit() {
+  const s = Math.min(window.innerWidth / 1920, 1);
+  stage.style.transform = 'scale(' + s + ')';
+  const scaler = document.getElementById('scaler');
+  scaler.style.width = (1920 * s) + 'px';
+  scaler.style.height = (1080 * s) + 'px';
+}
+window.addEventListener('resize', fit);
+fit();
+$('btn-pause').addEventListener('click', () => {
+  paused = !paused;
+  $('btn-pause').textContent = paused ? 'Resume animation' : 'Pause animation';
+});
+$('btn-replay').addEventListener('click', () => location.reload());
+if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { finishInstant(); }
+else { run(); }
+</script>
+<script>
+(function () {
+  const GOLDEN = { release: 1, hold: 2, wrap: 3, escalate: 2, tokens_in: 800, tokens_retained: 400,
+    tokens_discarded: 400, money_held: 1090, attention_gated: 7, irreversible_baseline: 6, irreversible_gated: 0 };
+  function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;'); }
+  document.getElementById('lg-run').addEventListener('click', function () {
+    const L = runQueue();
+    let html = '<table><thead><tr><th>Action</th><th>Trace</th><th>Temperature</th><th>Decision</th><th>Reason</th></tr></thead><tbody>';
+    for (const row of L.rows) {
+      const a = row.action, d = row.decision;
+      html += '<tr><td>' + esc(a.description) + (a.recipient ? '<br><span class="math">to: ' + esc(a.recipient) + '</span>' : '')
+        + '</td><td>' + (a.trace.length ? esc(a.trace.join(', ')) : '<span class="math">none</span>')
+        + '</td><td>' + d.temperature + '<br><span class="math">' + esc(mathOf(a)) + '</span>'
+        + '</td><td><span class="verdict">' + d.decision.toUpperCase() + '</span>'
+        + '</td><td>' + esc(d.reason_plain)
+        + (d.wrapped_version ? '<br><span class="math">Becomes: ' + esc(d.wrapped_version) + '</span>' : '')
+        + '</td></tr>';
+    }
+    html += '</tbody></table>';
+    document.getElementById('lg-results').innerHTML = html;
+    const ok = L.decisions.release === GOLDEN.release && L.decisions.hold === GOLDEN.hold
+      && L.decisions.wrap === GOLDEN.wrap && L.decisions.escalate === GOLDEN.escalate
+      && L.tokens_in === GOLDEN.tokens_in && L.tokens_retained === GOLDEN.tokens_retained
+      && L.tokens_discarded === GOLDEN.tokens_discarded && L.money_held === GOLDEN.money_held
+      && L.attention_gated === GOLDEN.attention_gated
+      && L.irreversible_baseline === GOLDEN.irreversible_baseline
+      && L.irreversible_gated === GOLDEN.irreversible_gated
+      && L.tokens_in === L.tokens_retained + L.tokens_discarded;
+    const led = document.getElementById('lg-ledger');
+    led.hidden = false;
+    led.innerHTML = '<p><span class="verdict">Ledger, closed by this page:</span> released '
+      + L.decisions.release + ' \u00b7 wrapped ' + L.decisions.wrap + ' \u00b7 held ' + L.decisions.hold
+      + ' \u00b7 escalated ' + L.decisions.escalate + ' \u2014 money held, not moved: $'
+      + L.money_held.toLocaleString('en-US') + ' \u2014 human checks ' + L.attention_baseline + ' \u2192 '
+      + L.attention_gated + ' \u2014 irreversible passed ' + L.irreversible_gated + ' of '
+      + L.irreversible_baseline + ' \u2014 tokens ' + L.tokens_in + ' = ' + L.tokens_retained + ' kept + '
+      + L.tokens_discarded + ' discarded.</p><p>'
+      + (ok ? 'Every total matches the Python golden run \u2014 <span class="verdict">Golden check PASSED.</span>'
+            : 'Totals differ from the Python golden run \u2014 do not trust this page over the repo.')
+      + '</p>';
+  });
+  document.getElementById('lg-gate').addEventListener('click', function () {
+    const trace = Array.from(document.querySelectorAll('.lg-trace')).filter(c => c.checked).map(c => c.value);
+    const kRaw = document.getElementById('lg-k').value, fRaw = document.getElementById('lg-flip').value;
+    const a = {
+      id: 'custom', type: document.getElementById('lg-type').value, description: 'Custom action',
+      trace: trace, amount_usd: parseFloat(document.getElementById('lg-amount').value) || 0,
+      reversible: !document.getElementById('lg-irrev').checked, recipient: '',
+      stability_k: kRaw === '' ? null : parseFloat(kRaw), flip_rate: fRaw === '' ? null : parseFloat(fRaw)
+    };
+    const d = gateDecide(a);
+    const box = document.getElementById('lg-custom-result');
+    box.hidden = false;
+    box.innerHTML = '<p><span class="math">' + esc(mathOf(a)) + '</span></p>'
+      + '<p>Temperature <span class="verdict">' + d.temperature + '</span> \u2192 <span class="verdict">'
+      + d.decision.toUpperCase() + '</span></p><p>' + esc(d.reason_plain) + '</p>'
+      + (d.wrapped_version ? '<p><span class="math">Becomes: ' + esc(d.wrapped_version) + '</span></p>' : '')
+      + '<p class="math">Mocked world: nothing executes from this page, whatever the verdict.</p>';
+  });
+})();
 </script>
 </body>
 </html>
