@@ -6,36 +6,52 @@
 during the event (October 26 – November 4, 2026). Everything claimed
 below was built in that window unless a section labels it background.
 
-## Abstract
+Maxx is a deterministic gate between an AI agent and tool execution.
 
-Maxx is a gate between an AI agent and execution — one recorded
-checkpoint that every consequential proposed action has to pass
-before anything runs.
+A proposed action is declared in a fixed schema:
 
-- **The moment it guards:** everyday actions where being wrong is
-  expensive or permanent — paying a bill, sending a message, sharing
-  a folder, booking a trip, posting publicly, deleting files.
-- **How a proposal is checked:** it is declared in a fixed
-  vocabulary — action type, what it touches, how much money moves,
-  whether it can be undone — then scored by stated arithmetic.
-- **How it is decided:** release, wrap, hold, or escalate, with one
-  plain reason. A release gets a one-use permit from a separate
-  sidecar process; a wrap executes a corrected, safer version of the
-  action; a hold or an escalate executes nothing.
-- **The record:** every decision lands in a ledger whose counts must
-  reconcile — tokens in = kept + discarded, decisions = entries.
-- **Seeded result:** eight proposed actions go from six irreversible
-  executions to zero; $1,090 of payments and bookings is held for
-  human decision; operator attention spent is 7 instead of 8.
-- **Live Meta run:** the same gate has also decided actions proposed
-  by Muse Spark 1.3 and reviewed by Muse Wonder 1.0 through the
-  Meta Model API.
-- **The science test:** behind the gate, a sorter backend tests
-  whether sorting a logged stream by a measured trace is informative
-  on a held-out variable rather than circular — falsifiers stated
-  in advance.
-- **The limit:** the world on the far side of the gate is mocked and
-  labelled as mocked. The gate is real; the tools are not.
+- **Type** — what kind of action it is.
+- **Trace** — what it touches.
+- **Amount** — how much money moves.
+- **Reversibility** — whether it can be undone.
+
+The gate scores the declared action with stated arithmetic:
+
+`floor 15 + trace weights + 15 if irreversible`, capped at `98`.
+
+It then decides:
+
+- **Release** — a one-use permit is issued.
+- **Wrap** — a corrected version is substituted.
+- **Hold** — nothing executes.
+- **Escalate** — nothing executes; the human decides.
+
+Enforcement is a separate sidecar process. It owns the permits and
+the ledger, and the ledger counts must reconcile.
+
+The gate itself calls no model. In the documented live run, Muse
+Spark 1.3 proposed the actions and Muse Wonder 1.0 reviewed them
+through the Meta Model API; the gate decided.
+
+Seeded run — 8 actions:
+
+- Decisions: release 1 / wrap 3 / hold 2 / escalate 2.
+- Irreversible executions: 6 → 0 against the ungated baseline.
+- Held for human decision: $1,090.
+- Operator attention: 8 → 7.
+- Tokens: 800 = 400 retained + 400 discarded.
+
+Limits and checks:
+
+- All tools behind the gate are mocks; no real action is taken in
+  any run.
+- A sorter backend tests whether trace-based sorting is informative
+  on a held-out variable, with falsifiers stated in advance.
+- The Petermann-K analysis on Muse Glimmer 30B activations did not
+  beat conventional baselines.
+- The gate's stability input is a constant stub.
+- Test suites: 61 + 25 passing; the demo commands below print their
+  own golden checks.
 
 ---
 
